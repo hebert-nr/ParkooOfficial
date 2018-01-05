@@ -1,0 +1,531 @@
+body{
+	margin:0;
+	padding:0;
+	background:#F6F1F5;
+	font-family:Century Gothic, sans-serif;
+	font-size: 18px;
+}
+
+#map {
+	
+    height:420px;
+    width:95%;
+	margin:auto;
+}
+
+h1, h2, h3{
+	text-align:center;
+	color: #666;
+}
+h4, h5{
+	color: #005406;
+}
+
+hr {
+    border-color: #6a9665;
+}
+
+p{
+	font-size:14px;
+}
+
+b, u, i, center,
+dl, dt, dd, ol, ul, li{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+  .break{
+	display:none;
+    visibility:hidden;
+  }
+  
+  #ham ul li, #ham ul li a{
+	display:block;
+	text-align:left;
+	padding:4px;
+	color:white;
+	text-decoration:none;
+  }
+
+  #ham{
+	background-color: #19530c;  
+	margin: 0 0 8px 0;
+	padding-top: 8px 0 0 0;
+	border-bottom: 3px solid #b0b1b2;
+  }
+  
+  #ham ul{
+	  border-top: 2px solid #b0b1b2;
+	background: black;
+  }
+  
+  #ham ul li:hover, #ham ul li a:hover {
+	background-color: #354;
+	color: #fff;  
+  }
+  
+  #ham img{
+	padding: 12px;
+  }
+
+  #small{
+	visibility: hidden;
+	display:none;
+  }
+  
+/* Base Styles */
+
+.cf:before,
+.cf:after {
+    content: " "; 
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+ol, ul {
+  list-style: none; }
+
+/* Search Styles */
+#wrapper{
+	margin: 0 auto;
+	max-width: 1120px;
+	width: 98%;
+	background: #d3e1cf;
+	border: .5px solid #999;
+	border-radius: 3px;
+	box-shadow: 0 0 10px rgba(12, 3, 25, 0.8);
+}
+#aboutMe{
+	margin-bottom:1em;
+	color: #005406;
+}
+
+#aboutMe a{
+	color:#aaa;
+  font-size: 1.3em;
+  font-weight: 800;
+  text-shadow:2px 1px 1px black;
+}
+
+#aboutMe a:hover{
+	color: #ccc;
+  font-size: 1.3em;
+}
+
+#aboutMe ul {
+   
+   list-style-type: disc; 
+   list-style-position: inside; 
+}
+
+#aboutMe li{ 
+    display:list-item;
+	text-align:left;
+	color: #005406;
+}
+
+#h{
+   color: #fff;
+}
+
+#search {
+  color: #111;
+  margin: 0 auto;
+  text-align:center;
+  padding: 10px 0;
+  z-index: 20;
+}
+
+#search h1 {
+  padding:0;
+  margin: 8px;
+  font-family: Century Gothic, sans-serif;
+  color: #888;
+  font-size: 2em;
+}
+
+
+#search input {
+  font-family: 'Droid Sans', sans-serif;
+  width: 100%;
+  padding: 10px 0 10px 15px;
+  font-size: 1em;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  outline: 0;
+}
+
+#search .formgroup input {
+  border: 1px solid rgba(0,0,0,0.3);
+  display: inline;
+  width: auto;
+}
+
+#search label{
+  display: inline;
+  width: auto;
+}
+
+/* park LIST */
+.parksList {
+  
+  background:#d3e1cf;
+  color: #005406;
+  width: 100%;
+  opacity: .95;
+  z-index: 20;
+}
+
+.parksList ul {
+  margin: 1px;
+  padding: 0;
+  background: #d0e1cf;
+}
+
+.parksList h2, h3, h4{
+ padding:4px;
+ margin:0;
+}
+
+.parksList #paLi {
+	margin:0;
+	padding:0;
+	text-decoration: none;
+	color: #005406;
+}
+
+.parksList a {
+  cursor:pointer;
+  padding: 3px;
+  text-decoration: none;
+}
+
+.parksList li:hover {
+  background: #6aba6f;
+  color: red;
+  opacity: 1;
+  border-radius: 8px;
+}
+
+.parkinfo {
+  font-family: Century Gothic, sans-serif; 
+  font-size: 1.1em;
+  background: #92A38F;
+  color: #000;
+  padding: 20px 30px;
+}
+
+.parkinfo h2{
+  margin: 0;
+  padding-bottom: 0;
+  color: #fff;
+  text-shadow: 2px 1px 1px #000;
+}
+
+.parkinfo a{
+	text-decoration:none;
+	color: #bbb;
+}
+
+#e:hover{
+  cursor:pointer;
+  color: #666;
+}
+
+#r{
+  color:#ccc;	
+}
+
+.parkinfo p{
+  color: #f2f2f2;
+  margin:0;
+ padding:0;
+text-align:center; 
+  text-shadow: 2px 1px 1px #000;	
+}
+
+.ctrl{
+	text-align:center;
+	font-size: 2em;
+	color:white;
+}
+
+.ctrl a{
+	color: #005406;
+}
+
+.ctrl a:visited{
+	color:#005406;
+}
+
+.park.ng-enter.ng-enter-active,
+.park.ng-leave {
+  opacity: 1;
+  height: 80px;
+  overflow: hidden;
+}
+
+.park.ng-leave.ng-leave-active,
+.park.ng-enter {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+
+img{
+	border:none;
+	text-align:center;
+	max-width:100%;
+	height:auto;
+	width:auto;
+}
+
+#head{
+	text-align:center;
+	width:100%;
+	height:auto;
+	background: #92a38f;
+	overflow:hidden;
+}
+
+
+.banner img{
+	border-top:1px solid #666;
+	border-bottom:1px solid #666;
+}
+
+.centerSay{
+	text-align:center;
+	color: #005406;
+	font-weight:100;
+	margin: 3px;
+}
+
+.section{
+	width: 29%;
+	float:left;
+	margin-right:4%;
+	margin-top: 2%;
+	margin-bottom:0;
+	padding:0;
+	text-align:center;
+}
+
+footer{
+	background:#005406;
+	width:100%;
+	overflow:hidden;
+}
+
+footer h3, footer p{
+	color:#6aba6f;
+	font-weight:100;
+}
+
+ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+li{
+	display:inline;
+	text-align:center;
+}
+
+ul li img {
+	height: 3em;
+}
+
+.searching{
+	margin-top: 10px;
+	padding:20px;
+}
+
+#aboutMe{
+	width: 90%;
+	margin-left: 5%;
+	border-radius: 8px;
+	text-align:center;
+	color: rgba(124,124,124, 0.8);
+	background: rgba(255,255,255,0.4);
+	border: 1px solid rgba(255,255,255,0.2);
+}
+
+#aboutMe p{
+	padding:8px;
+	color: #005406;
+}
+
+#aboutMe ul li {
+	padding:4px;
+}
+
+#sort{
+	margin-top:2%;
+}
+
+.advance{
+	float:right;
+	color: #005406;
+}
+.advance:hover{
+	color:#888;
+	cursor:pointer;
+}
+
+/* ------------------------------------------------------------------------------------------*/
+/* ------------------------*-------BEGIN MEDIA QUERY-------*---------------------------------*/
+/* ------------------------------------------------------------------------------------------*/
+
+
+@media screen and (max-width:600px){
+
+.break{
+	display:block;
+	visibility:visible;
+}
+
+.parkinfo  p{
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+ body{
+	font-size:13px;
+ }
+
+.section ul li a img{
+	width: 20%;
+	height: 20%;
+}
+
+#aboutMe{
+	margin-bottom: 1em;
+ font-size: 15px; 
+}
+
+ p{
+font-size: 11px;
+}
+
+
+#small{
+	visibility: visible;
+	display:inline;
+  }	
+	
+#hill{
+	visibility: hidden;
+	position:absolute;
+  }
+  
+  .contactForm input, .contactForm textarea{
+width: 95%;	
+}
+
+}
+ 
+@media screen and (max-width:740px){
+body{
+	padding:0;
+	margin:0;
+	background:#92a38f;
+}
+
+
+.parkinfo{
+ margin-top:4em;
+}
+.parkinfo  p{
+	font-size: 1.4em;
+	font-weight: bold;
+}
+#ham{
+	font-size: 24px;
+}
+
+#wrapper{
+	width:100%;
+	border-radius: 3px;
+	box-shadow: 0 0 0 rgba(2, 3, 25, 0.8);
+	border:none;
+}
+p{
+  font-size: 12px;
+}
+
+.searching {
+	display: list-item;
+	list-style:none;
+	font-size: 13px;
+}
+
+#aboutMe{
+ font-size: 15px; 
+
+}
+.searching h1{
+	font-weight:100;
+}
+
+.section h3{
+	color:#005406;
+}
+
+#head{
+	text-align:center;
+	background: #92a38f;
+	border-bottom: 5px solid #99938f;
+	width:100%;
+	height:auto;
+	overflow:hidden;
+}
+
+ .banner{
+	width:0;
+	height:0;
+	visibility:hidden;
+ }
+ 
+.centerSay{
+	visibility:hidden;
+	width:0;
+	height:0;
+} 
+.section{
+	background:#d3e1cf;
+	float:left;
+	width: 100%;
+	margin:0;
+	font-size: 80%;
+}
+}
+ 
+ /* -----------------------------------------------------------------------------------------*/
+ /* -------------------------*-------END MEDIA QUERY-------*---------------------------------*/
+ /* -----------------------------------------------------------------------------------------*/
+ 
+ .section img.swing{
+	text-align:left;
+	float:left;
+ }
+
+
+
+
+#search label.formgroup {
+  display: inline;
+  width: auto;
+}
+
+
