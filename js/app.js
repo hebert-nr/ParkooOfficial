@@ -22,6 +22,9 @@ myApp.controller('MyController', function MyController($scope, $http) {
     });
 });
 
+
+
+
 //Allows for multiple words searched separated by space
 myApp.filter('myFilter', ['$filter', function ($filter) {
     var buildMatchingString = function (object) {
