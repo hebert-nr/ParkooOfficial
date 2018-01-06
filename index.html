@@ -58,8 +58,6 @@
                                         <div class="col-5 col-md-4">
                                             <div class="form-check form-check-inline">
                                                 <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked> asc</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
                                                 <label class="form-check-label">
                                                 <input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
                                             </div>
@@ -74,7 +72,7 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-9 col-md-7 col-lg-5">
-                            <ul class="list-group d-flex" ng-if="searchText">
+                            <ul class="list-group d-flex">
                                 <li class="list-group-item" ng-repeat="items in parks | myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
                                     <a id="paLi" style="cursor: pointer" ng-click="parkIndex(item); navi.selectTab(4)">
                                         <div class="media d-flex align-items-center">
@@ -94,13 +92,13 @@
             <div ng-show="navi.isSelected(4)" class="parkinfo">
 
                 <hr>
-                <h2> {{parkDetail.parkName}}</h2>
+                <h2> {{itemDetails.parkName}}</h2>
                 <a id="r">
-                    <p>{{parkDetail.streetAddress}}, {{parkDetail.city}}</p>
+                    <p>{{itemDetails.streetAddress}}, {{itemDetails.city}}</p>
                 </a>
                 <hr>
                 <h4> This park includes: </h4>
-                <h4 id="h">{{parkDetail.feature}}.</h4>
+                <h4 id="h">{{itemDetails.feature}}.</h4>
 
                 <p><a id="e" ng-click="navi.selectTab(1)">Back to Search</a></p>
             </div>

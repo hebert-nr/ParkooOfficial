@@ -1,12 +1,14 @@
 var myApp = angular.module('parkoo', []);
 
+//pulls the data from our js files
 myApp.controller('MyController', function MyController($scope, $http) {
     $http.get("js/data.json").then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName"
         $scope.display = "10";
     });
-
+    
+    //used for advanced search (which features)
     $http.get("js/features.json").then(function (response) {
         $scope.feat = response.data;
     });
@@ -14,12 +16,13 @@ myApp.controller('MyController', function MyController($scope, $http) {
     $scope.parkIndex = function (i) {
         $scope.parkDetail = i;
     };
+    
     $scope.$on('$destroy', function () {
         window.onbeforeunload = undefined;
     });
 });
 
-
+//Allows for multiple words searched separated by space
 myApp.filter('myFilter', ['$filter', function ($filter) {
     var buildMatchingString = function (object) {
         var matchingString = '';
@@ -54,6 +57,7 @@ myApp.filter('myFilter', ['$filter', function ($filter) {
     };
 }]);
 
+//dictates which section of the application is showing (true SPA feature)
 myApp.controller('NavController', function () {
     this.tab = 1;
     this.selectTab = function (setTab) {
