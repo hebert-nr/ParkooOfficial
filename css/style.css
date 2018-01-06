@@ -1,16 +1,9 @@
 body{
 	margin:0;
 	padding:0;
-	background:#F6F1F5;
+	background:#92a38f;
 	font-family:Century Gothic, sans-serif;
 	font-size: 18px;
-}
-
-#map {
-	
-    height:420px;
-    width:95%;
-	margin:auto;
 }
 
 h1, h2, h3{
@@ -27,6 +20,11 @@ hr {
 
 p{
 	font-size:14px;
+}
+
+.form-control
+{
+    margin-bottom:3px;
 }
 
 b, u, i, center,
@@ -485,7 +483,7 @@ p{
 #head{
 	text-align:center;
 	background: #92a38f;
-	border-bottom: 5px solid #99938f;
+	border-bottom: 5px solid #708d6c;
 	width:100%;
 	height:auto;
 	overflow:hidden;

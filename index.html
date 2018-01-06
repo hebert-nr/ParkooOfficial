@@ -13,66 +13,123 @@
     <title>Parkoo</title>
 </head>
 
-<body class="bg-secondary" ng-controller="MyController">
-    <div class="container mt-sm-3">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6 card">
-                <div class="card-body">
-                    <div class="form-row mb-2">
-                        <div class="col text-center">
-                            <label class="col-form-label" for="searchQuery">
-                            i found {{(parks|myFilter:searchText).length}} parks meeting that criteria
-                        </label><br />
-                        </div>
-                        <div class="form-row col-12">
-                            <input class="form-control" type="text" id="searchQuery" placeholder="Search..." autofocus ng-model="searchText">
-                        </div>
-                        <div class="form-row">
-                            <div class="col">
-                                <select class="form-control mr-3 w-100" ng-model="parkOrder">
-                                <option value="parkName">Park Name</option>
-                                <option value="city">City</option>
-                            </select>
-                            </div>
-                            <div class="col-5 col-md-4">
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked> asc</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                    <input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
+<body ng-controller="NavController as navi">
+
+    <div id="ham">
+        <a ng-click="toggle = !toggle"><img src="images/hamenu.png" /></a>
+        <ul ng-show="toggle">
+            <li><a id="Home" ng-click="navi.selectTab(1); toggle = false">Home</a></li>
+            <li><a id="About" ng-click="navi.selectTab(2); toggle = false">About</a></li>
+            <li><a id="Contact" href="mailto:parkoo.staff@gmail.com" ng-click="toggle = false">Contact</a></li>
+            <!-- <li><a id="Settings" ng-click="navi.selectTab(5);  toggle = false">Settings</a></li> -->
+            <!-- <li><a id="Review" ng-href="#"  ng-click="toggle = false">Rate/Review</a></li> -->
+        </ul>
+    </div>
+
+    <div class="searching">
+        <section ng-controller="MyController">
+            <div id="head">
+                <img id="hill" src="images/parkoo_beta_Logo.png" alt="Park Finder" title="Parkoo!" />
+                <img id="small" src="images/Parkoo_Beta_Logo_Small.png" alt="Park Finder" title="Parkoo!" />
+            </div>
+            <h1 class="centerSay">...find something new and beautiful...</h1>
+            <div ng-show="navi.isSelected(1)">
+                <div class="container mt-sm-3">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-8 col-lg-6 card">
+                            <div class="card-body">
+                                <div class="form-row mb-2">
+                                    <div class="col text-center">
+                                        <label class="col-form-label" for="searchQuery">
+                                            i found {{(parks|myFilter:searchText).length}} parks meeting that criteria
+                                        </label>
+                                        <br />
+                                    </div>
+                                    <div class="form-row col-12">
+                                        <input class="form-control" type="text" id="searchQuery" placeholder="Search..." autofocus ng-model="searchText">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col">
+                                            <select class="form-control mr-3 w-100" ng-model="parkOrder">
+                                                <option value="parkName">Park Name</option>
+                                                <option value="city">City</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-5 col-md-4">
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked> asc</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <label class="form-check-label">
+                                                <input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="park-list container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-9 col-md-7 col-lg-5">
-                <ul class="list-group d-flex" ng-if="searchText">
-                    <li class="list-group-item" ng-repeat="items in parks | myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
-                        <div class="media d-flex align-items-center">
-                            <div class="media-body">
-                                <h5 class="my-0 text-dark">{{items.parkName | uppercase}}</h5>
-                                <div class="text-secondary font-italic">{{items.streetAddress}}<br /> {{items.city}}, {{items.zipCode}}
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-                <span>Parks Displayed:
-                    <select ng-model="display">
-                        <option Value = "5"> 5</option><option Value = "10" selected> 10</option><option Value = "20"> 20</option><option Value = "30"> 30 </option><option Value = "40"> 40</option><option Value = "50"> 50</option>
-                    </select>
-                </span>
-            </div>
-            
-        </div>
-    </div>
 
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-9 col-md-7 col-lg-5">
+                            <ul class="list-group d-flex" ng-if="searchText">
+                                <li class="list-group-item" ng-repeat="items in parks | myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
+                                    <a id="paLi" style="cursor: pointer" ng-click="parkIndex(item); navi.selectTab(4)">
+                                        <div class="media d-flex align-items-center">
+                                            <div class="media-body">
+                                                <h5 class="my-0 text-dark">{{items.parkName | uppercase}}</h5>
+                                                <div class="text-secondary font-italic">{{items.streetAddress}}<br /> {{items.city}}, {{items.zipCode}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="navi.isSelected(4)" class="parkinfo">
+
+                <hr>
+                <h2> {{parkDetail.parkName}}</h2>
+                <a id="r">
+                    <p>{{parkDetail.streetAddress}}, {{parkDetail.city}}</p>
+                </a>
+                <hr>
+                <h4> This park includes: </h4>
+                <h4 id="h">{{parkDetail.feature}}.</h4>
+
+                <p><a id="e" ng-click="navi.selectTab(1)">Back to Search</a></p>
+            </div>
+            <label ng-show="navi.isSelected(1) || navi.isSelected(6)">				
+				<span>Parks Displayed:
+					<select ng-model="display">
+						<option Value = "5"> 5</option><option Value = "10" selected> 10</option><option Value = "20"> 20</option><option Value = "30"> 30 </option><option Value = "40"> 40</option><option Value = "50"> 50</option>
+						<option Value = ""></option>
+					</select>
+				</span>
+			</label>
+        </section>
+    </div>
+    <footer>
+        <div class="section">
+            <img class="swing" src="images/treeswing.png" />
+        </div>
+        <div class="section">
+            <br />
+            <h3>&#169; 2018 Parkoo</h3>
+        </div>
+        <div class="section">
+            <p>Find us</p>
+            <ul>
+                <li><a href="https://www.facebook.com/parkooparks" target="_blank"><img src="images/fbtap.png" /></a></li>
+                <li><a href="http://instagram.com/parkoobeta" target="_blank"><img src="images/instatap.png" /></a></li>
+            </ul>
+        </div>
+    </footer>
 
 
 
