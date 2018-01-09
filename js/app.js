@@ -5,7 +5,7 @@ myApp.controller('MyController', function MyController($scope, $http, $filter) {
     $http.get("js/data.json").then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName"
-        $scope.display = 25;
+        $scope.display = 40;
         
         $scope.sort = {
         sortingOrder: 'id',
