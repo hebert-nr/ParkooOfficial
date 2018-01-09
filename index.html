@@ -73,7 +73,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-9 col-md-7 col-lg-5">
                             <ul class="list-group d-flex">
-                                <li class="list-group-item" ng-repeat="items in parks | myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
+                                <li class="list-group-item" ng-repeat="items in pagedItems[currentPage] | myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
                                     <a id="paLi" style="cursor: pointer" ng-click="parkIndex(item); navi.selectTab(4)">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body">
@@ -84,9 +84,25 @@
                                         </div>
                                     </a>
                                 </li>
+                                <li>
+                                    <ul>
+                                        <li ng-class="{disabled: currentPage == 0}">
+                                            <a href ng-click="prevPage()">« Prev</a>
+                                        </li>
+                                        <li ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) " ng-class="{active: n == currentPage}" ng-click="$parent.currentPage = n;">
+                                            <a href ng-bind="n + 1">1</a>
+                                        </li>
+
+                                        <li ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+                                            <a href ng-click="nextPage()">Next »</a>
+                                        </li>
+
+                                    </ul>
+                                </li>
                             </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
             <div ng-show="navi.isSelected(4)" class="parkinfo">
@@ -105,7 +121,7 @@
             <label ng-show="navi.isSelected(1) || navi.isSelected(6)">				
 				<span>Parks Displayed:
 					<select ng-model="display">
-						<option Value = "5"> 5</option><option Value = "10" selected> 10</option><option Value = "20"> 20</option><option Value = "30"> 30 </option><option Value = "40"> 40</option><option Value = "50"> 50</option>
+						<option Value = "5"> 5</option><option Value = "10" selected> 10</option><option Value = "25"> 25 </option><option Value = "40"> 40</option>
 						<option Value = ""></option>
 					</select>
 				</span>
