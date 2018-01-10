@@ -5,19 +5,14 @@ myApp.controller('MyController', function MyController($scope, $http, $filter) {
     $http.get("js/data.json").then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName"
-        $scope.display = 40;
         
-        $scope.sort = {
-        sortingOrder: 'id',
-        reverse: false
-    };
-
+        
+        
     //here down is for pagination
-    $scope.gap = 5;
-
+    $scope.pageSizes = [5, 10, 25, 50];
     $scope.filteredItems = [];
     $scope.groupedItems = [];
-    $scope.itemsPerPage = $scope.display;
+    $scope.itemsPerPage = 10;
     $scope.pagedItems = [];
     $scope.currentPage = 0;
     var searchMatch = function (haystack, needle) {
@@ -36,15 +31,16 @@ myApp.controller('MyController', function MyController($scope, $http, $filter) {
             }
             return false;
         });
-        // take care of the sorting order
-        if ($scope.sort.sortingOrder !== '') {
-            $scope.filteredItems = $filter('orderBy')($scope.filteredItems, $scope.sort.sortingOrder, $scope.sort.reverse);
-        }
+        
         $scope.currentPage = 0;
         // now group by pages
         $scope.groupToPages();
     };
 
+        // show items per page
+    $scope.perPage = function () {
+        $scope.groupToPages();
+    };
 
     // calculate page in place
     $scope.groupToPages = function () {
@@ -59,18 +55,15 @@ myApp.controller('MyController', function MyController($scope, $http, $filter) {
         }
     };
 
-    $scope.range = function (size, start, end) {
+    $scope.range = function (start, end) {
         var ret = [];
-        console.log(size, start, end);
-
-        if (size < end) {
-            end = size;
-            start = size - $scope.gap;
+        if (!end) {
+            end = start;
+            start = 0;
         }
         for (var i = start; i < end; i++) {
             ret.push(i);
         }
-        console.log(ret);
         return ret;
     };
 
@@ -93,6 +86,9 @@ myApp.controller('MyController', function MyController($scope, $http, $filter) {
     // functions have been describe process the data for display
     $scope.search();
     });
+    
+    
+    
 
     //used for advanced search (which features)
     $http.get("js/features.json").then(function (response) {

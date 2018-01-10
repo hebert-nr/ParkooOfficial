@@ -55,12 +55,16 @@
                                                 <option value="city">City</option>
                                             </select>
                                         </div>
-                                        <div class="col-5 col-md-4">
+                                        <div class="col-md-4">
                                             <div class="form-check form-check-inline">
+                                                <label ng-show="navi.isSelected(1) || navi.isSelected(6)">				
+				                                <select class="form-control" ng-model="itemsPerPage" ng-change="perPage()" ng-options="('show '+size+' per page') for size in pageSizes"></select>
+			                                 </label>
                                                 <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked> asc</label>
                                                 <label class="form-check-label">
                                                 <input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -85,28 +89,25 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <ul>
-                                        <li ng-class="{disabled: currentPage == 0}">
-                                            <a href ng-click="prevPage()">« Prev</a>
+                                    <ul class="pagination">
+                                        <li ng-class="{disabled: currentPage == 0}" class="page-item">
+                                            <a class="page-link" href ng-click="prevPage()">« Prev</a>
                                         </li>
-                                        <li ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) " ng-class="{active: n == currentPage}" ng-click="$parent.currentPage = n;">
-                                            <a href ng-bind="n + 1">1</a>
-                                        </li>
-
-                                        <li ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
-                                            <a href ng-click="nextPage()">Next »</a>
+                                        <li class="page-item" ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) " ng-class="{active: n == currentPage}" ng-click="$parent.currentPage = n;">
+                                            <a class="page-link" href ng-bind="n + 1">1</a>
                                         </li>
 
+                                        <li class="page-item" ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
+                                            <a href class="page-link" ng-click="nextPage()">Next »</a>
+                                        </li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div ng-show="navi.isSelected(4)" class="parkinfo">
-
                 <hr>
                 <h2> {{itemDetails.parkName}}</h2>
                 <a id="r">
@@ -118,14 +119,6 @@
 
                 <p><a id="e" ng-click="navi.selectTab(1)">Back to Search</a></p>
             </div>
-            <label ng-show="navi.isSelected(1) || navi.isSelected(6)">				
-				<span>Parks Displayed:
-					<select ng-model="display">
-						<option Value = "5"> 5</option><option Value = "10" selected> 10</option><option Value = "25"> 25 </option><option Value = "40"> 40</option>
-						<option Value = ""></option>
-					</select>
-				</span>
-			</label>
         </section>
     </div>
     <footer>
