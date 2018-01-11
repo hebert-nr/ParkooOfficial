@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/angular.min.js"></script>
+    <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/ui-bootstrap-tpls-0.12.1.min.js"></script>
     <title>Parkoo</title>
 </head>
 
@@ -41,7 +41,7 @@
                                 <div class="form-row mb-2">
                                     <div class="col text-center">
                                         <label class="col-form-label" for="searchQuery">
-                                            i found {{(parks|myFilter:searchText).length}} parks meeting that criteria
+                                            I found {{(parks|myFilter:searchText).length}} parks meeting that criteria
                                         </label>
                                         <br />
                                     </div>
@@ -58,13 +58,20 @@
                                         <div class="col-md-4">
                                             <div class="form-check form-check-inline">
                                                 <label ng-show="navi.isSelected(1) || navi.isSelected(6)">				
-				                                <select class="form-control" ng-model="itemsPerPage" ng-change="perPage()" ng-options="('show '+size+' per page') for size in pageSizes"></select>
+				                                <span>
+                                					<select class="form-control" ng-model="display">
+                                                        
+                                                        <option Value = "5">Display 5 Parks</option><option Value = "10" selected>Display 10 Parks</option><option Value = "25">Display 25 Parks</option><option Value = "50">Display 50 Parks</option>
+                                                        <option Value = ""></option>
+                                                        
+                                                    </select>
+                                                </span>
 			                                 </label>
                                                 <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked> asc</label>
                                                 <label class="form-check-label">
                                                 <input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +84,7 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-9 col-md-7 col-lg-5">
                             <ul class="list-group d-flex">
-                                <li class="list-group-item" ng-repeat="items in pagedItems[currentPage] | myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
+                                <li class="list-group-item" ng-repeat="items in parks | myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
                                     <a id="paLi" style="cursor: pointer" ng-click="parkIndex(item); navi.selectTab(4)">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body">
@@ -89,18 +96,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <ul class="pagination">
-                                        <li ng-class="{disabled: currentPage == 0}" class="page-item">
-                                            <a class="page-link" href ng-click="prevPage()">« Prev</a>
-                                        </li>
-                                        <li class="page-item" ng-repeat="n in range(pagedItems.length, currentPage, currentPage + gap) " ng-class="{active: n == currentPage}" ng-click="$parent.currentPage = n;">
-                                            <a class="page-link" href ng-bind="n + 1">1</a>
-                                        </li>
-
-                                        <li class="page-item" ng-class="{disabled: (currentPage) == pagedItems.length - 1}">
-                                            <a href class="page-link" ng-click="nextPage()">Next »</a>
-                                        </li>
-                                    </ul>
+                                    <simple-pagination current-page="settings.currentPage" offset="settings.offset" page-limit="settings.pageLimit" page-limits="settings.pageLimits" on-update="callback()" total="items.length">
+                                    </simple-pagination>
                                 </li>
                             </ul>
                         </div>
