@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/angular.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
     <script src="js/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="js/app.js"></script>
     <title>Parkoo</title>
@@ -58,20 +59,18 @@
                                         <div class="col-md-4">
                                             <div class="form-check form-check-inline">
                                                 <label ng-show="navi.isSelected(1) || navi.isSelected(6)">				
-				                                <span>
-                                					<select class="form-control" ng-model="display">
-                                                        
-                                                        <option Value = "5">Display 5 Parks</option><option Value = "10" selected>Display 10 Parks</option><option Value = "25">Display 25 Parks</option><option Value = "50">Display 50 Parks</option>
-                                                        <option Value = ""></option>
-                                                        
-                                                    </select>
-                                                </span>
-			                                 </label>
-                                                <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked> asc</label>
-                                                <label class="form-check-label">
-                                                <input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
+                                                    <span>
+                                                        <select class="form-control" ng-model="display">
+                                                            <option Value = "5">Display 5 Parks</option>
+                                                            <option Value = "10">Display 10 Parks</option>
+                                                            <option Value = "25">Display 25 Parks</option>
+                                                            <option Value = "50">Display 50 Parks</option>
+                                                        </select>
+                                                    </span>
+			                                     </label>
+                                                <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked>asc</label>
+                                                <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -84,8 +83,8 @@
                     <div class="row justify-content-center">
                         <div class="col-12 col-sm-9 col-md-7 col-lg-5">
                             <ul class="list-group d-flex">
-                                <li class="list-group-item" ng-repeat="items in parks | myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
-                                    <a id="paLi" style="cursor: pointer" ng-click="parkIndex(item); navi.selectTab(4)">
+                                <li class="list-group-item" ng-repeat="items in parks |  myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
+                                    <a id="paLi" style="cursor: pointer" href="#" ng-click="parkIndex(items); navi.selectTab(4)">
                                         <div class="media d-flex align-items-center">
                                             <div class="media-body">
                                                 <h5 class="my-0 text-dark">{{items.parkName | uppercase}}</h5>
@@ -96,8 +95,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <simple-pagination current-page="settings.currentPage" offset="settings.offset" page-limit="settings.pageLimit" page-limits="settings.pageLimits" on-update="callback()" total="items.length">
-                                    </simple-pagination>
+
+                                    <!-- THIS IS WHERE THE PAGINGATION WILL GO IF WE CAN EVER FIGURE IT OUT  -->
+
                                 </li>
                             </ul>
                         </div>
@@ -105,14 +105,13 @@
                 </div>
             </div>
             <div ng-show="navi.isSelected(4)" class="parkinfo">
-                <hr>
-                <h2> {{itemDetails.parkName}}</h2>
+                <h2> {{parkDetail.parkName}}</h2>
                 <a id="r">
-                    <p>{{itemDetails.streetAddress}}, {{itemDetails.city}}</p>
+                    <p>{{parkDetail.streetAddress}}, {{parkDetail.city}}</p>
                 </a>
                 <hr>
-                <h4> This park includes: </h4>
-                <h4 id="h">{{itemDetails.feature}}.</h4>
+                <h4 style="text-align: center;"> This park includes: </h4>
+                <h4 id="h">{{parkDetail.feature}}.</h4>
 
                 <p><a id="e" ng-click="navi.selectTab(1)">Back to Search</a></p>
             </div>
@@ -140,7 +139,6 @@
 </body>
 
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/tether.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
 </html>

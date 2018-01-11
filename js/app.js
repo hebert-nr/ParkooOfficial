@@ -1,4 +1,6 @@
-var myApp = angular.module('parkoo', []);
+var myApp = angular.module('parkoo', ['ui.bootstrap']);
+
+
 
 //pulls the data from our js files
 myApp.controller('MyController', function MyController($scope, $http) {
@@ -6,11 +8,20 @@ myApp.controller('MyController', function MyController($scope, $http) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName"
         $scope.display = 10;
-       })
+    });
+
+    $scope.pageChangeHandler = function (num) {
+        console.log('parks page changed to ' + num);
+    };
+
+    $scope.parkIndex = function (i) {
+        $scope.parkDetail = i;
+    };
+    $scope.$on('$destroy', function () {
+        window.onbeforeunload = undefined;
+    });
+
 });
-
-
-
 
 
 
@@ -48,6 +59,7 @@ myApp.filter('myFilter', ['$filter', function ($filter) {
         });
     };
 }]);
+
 
 //dictates which section of the application is showing (true SPA feature)
 myApp.controller('NavController', function () {
