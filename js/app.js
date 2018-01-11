@@ -7,7 +7,7 @@ myApp.controller('MyController', function MyController($scope, $http) {
     $http.get("js/data.json").then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName"
-        $scope.display = 10;
+        $scope.display = "5";
     });
 
     $scope.pageChangeHandler = function (num) {

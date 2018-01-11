@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #92a38f;
+    background: #868686;
     font-family: Century Gothic, sans-serif;
     font-size: 18px;
 }
@@ -11,6 +11,11 @@ body {
 .carousel,
 .panel-title a {
     cursor: pointer;
+}
+
+.selectBox {
+    font-size: 1em;
+    margin: 0 0 0 5px;
 }
 
 h1,
@@ -155,6 +160,7 @@ ul {
 }
 
 #h {
+    text-align: center;
     color: #fff;
 }
 
@@ -243,6 +249,7 @@ h4 {
 
 .parkinfo {
     margin: auto;
+    margin-top: 0;
     width: 85%;
     font-family: Century Gothic, sans-serif;
     font-size: 1.1em;
@@ -376,8 +383,8 @@ ul li img {
 }
 
 .searching {
-    margin-top: 10px;
-    padding: 20px;
+    margin-top: ;
+    padding: 3px 0 10px 0;
 }
 
 #aboutMe {
@@ -420,6 +427,12 @@ ul li img {
 /* ------------------------------------------------------------------------------------------*/
 
 @media screen and (max-width:600px) {
+
+    body {
+        padding: 0;
+        margin: 0;
+        background: #92a38f;
+    }
 
     .break {
         display: block;
@@ -480,7 +493,7 @@ ul li img {
 
 
     .parkinfo {
-        margin-top: 4em;
+        margin-top: 1em;
     }
     .parkinfo p {
         font-size: 1.4em;
@@ -509,9 +522,6 @@ ul li img {
     #aboutMe {
         font-size: 15px;
 
-    }
-    .searching h1 {
-        font-weight: 100;
     }
 
     .section h3 {
@@ -556,12 +566,4 @@ ul li img {
 .section img.swing {
     text-align: left;
     float: left;
-}
-
-
-
-
-#search label.formgroup {
-    display: inline;
-    width: auto;
 }
