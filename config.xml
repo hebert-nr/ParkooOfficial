@@ -3,24 +3,26 @@
 
     <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="Orientation" value="portrait" />
-    <preference name="SplashScreenDelay" value="3000" />
-    <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="SplashShowOnlyFirstTime" value="false" />
 
+    <access origin="*"></access>
 
     <name>Parkoo Park Finder (BETA)</name>
     <content src="index.html" />
 
     <platform name="android">
-        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="ldpi" />
-        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="mdpi" />
-        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="hdpi" />
-        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="xhdpi" />
-        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="xxhdpi" />
-        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="fr-xxhdpi" />
-        <splash src="splash.png" />
+        <icon src="images/Parkoo_Icon.png" platform="android" qualifier="ldpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" qualifier="mdpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" qualifier="hdpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" qualifier="xhdpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" qualifier="xxhdpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" qualifier="fr-xxhdpi" />
+        <splash src="splash.png" density="port-hdpi" />
+        <splash src="splash.png" density="port-ldpi" />
+        <splash src="splash.png" density="port-mdpi" />
+        <splash src="splash.png" density="port-xhdpi" />
     </platform>
 
+    <preference name="SplashScreenDelay" value="10000" />
 
     <description>
         <h3 style="color:#005406;">!!!BETA VERSION!!!</h3>
