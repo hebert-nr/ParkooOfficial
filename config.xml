@@ -6,13 +6,14 @@
     <preference name="Fullscreen" value="true" />
     <preference name="SplashScreenDelay" value="4000" />
     <preference name="SplashMaintainAspectRatio" value="false" />
-    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <preference name="SplashShowOnlyFirstTime" value="true" />
     <plugin name="cordova-plugin-splashscreen" spec="~5.0.1" />
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1" />
 
+
     <name>Parkoo Park Finder (BETA)</name>
     <description>
-        !!!BETA VERSION!!! Still in test mode -Incomplete Data, Social Media links not working,Big plans for the future including: ~profiles ~ratings ~functioning maps ~location setter ~advanced search ~pagination
+        !!!BETA VERSION!!! Still in test mode -Incomplete Data. Big plans for the future including: ~profiles ~ratings ~functioning maps ~location setter ~advanced search ~pagination
     </description>
 
     <author email="parkoo.staff@gmail.com" href="https://www.facebook.com/parkooparks">
@@ -39,15 +40,15 @@
     </platform>
 
     <plugin name="cordova-plugin-dialogs" spec="~2.0.1" />
-
+    <plugin name="cordova-plugin-device" spec="~2.0.1" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
     <access origin="*" subdomains="true" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+
+    <!--allows access to resources like "dialer", sms, geolocation, android market or iTunes store.-->
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
@@ -55,6 +56,8 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+
+    <preference name="android-minSdkVersion" value="21" />
 
 
 </widget>
