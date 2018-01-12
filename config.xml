@@ -12,22 +12,14 @@
     <content src="index.html" />
 
     <platform name="android">
-        <icon src="images/Parkoo_Icon.png" gap:platform="android" gap:qualifier="ldpi" />
-        <icon src="images/Parkoo_Icon.png" gap:platform="android" gap:qualifier="mdpi" />
-        <icon src="images/Parkoo_Icon.png" gap:platform="android" gap:qualifier="hdpi" />
-        <icon src="images/Parkoo_Icon.png" gap:platform="android" gap:qualifier="xhdpi" />
-        <icon src="images/Parkoo_Icon.png" gap:platform="android" gap:qualifier="xxhdpi" />
-        <icon src="images/Parkoo_Icon.png" gap:platform="android" gap:qualifier="fr-xxhdpi" />
-        <splash src="images/splash.png" density="port-hdpi" />
-        <splash src="images/splash.png" density="port-ldpi" />
-        <splash src="images/splash.png" density="port-mdpi" />
-        <splash src="images/splash.png" density="port-xhdpi" />
-
-
+        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="ldpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="mdpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="hdpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="xhdpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="xxhdpi" />
+        <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="fr-xxhdpi" />
+        <splash src="splash.png" />
     </platform>
-    <platform name="ios">
-    </platform>
-
 
 
     <description>
