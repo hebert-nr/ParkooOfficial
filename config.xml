@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.parkoo" version="0.2.0" versionCode="1">
 
-    <preference name="phonegap-version" value="cli-6.5.0" />
+    <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="Orientation" value="portrait" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
