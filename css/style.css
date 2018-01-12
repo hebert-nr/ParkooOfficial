@@ -124,7 +124,7 @@ ul {
     margin: 0 auto;
     max-width: 1120px;
     width: 98%;
-    background: #d3e1cf;
+    background: #96a693;
     border: .5px solid #999;
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(12, 3, 25, 0.8);
@@ -198,16 +198,12 @@ ul {
     width: auto;
 }
 
-#search label {
-    display: inline;
-    width: auto;
-}
+
 
 /* park LIST */
 
 .parksList {
-
-    background: #d3e1cf;
+    background: #dadbd8;
     color: #005406;
     width: 100%;
     opacity: .95;
@@ -232,6 +228,7 @@ h4 {
     padding: 0;
     text-decoration: none;
     color: #005406;
+    background: #dadbd8;
 }
 
 .parksList a {
@@ -241,8 +238,7 @@ h4 {
 }
 
 .parksList li:hover {
-    background: #6aba6f;
-    color: red;
+    background: #cdd5ce;
     opacity: 1;
     border-radius: 8px;
 }
@@ -420,6 +416,13 @@ ul li img {
     cursor: pointer;
 }
 
+.sayBack {
+    background: #afb0b1;
+    padding: 20px;
+    border-bottom;
+    border-bottom: 3px solid cornsilk;
+}
+
 /* ------------------------------------------------------------------------------------------*/
 
 /* ------------------------*-------BEGIN MEDIA QUERY-------*---------------------------------*/
@@ -491,6 +494,9 @@ ul li img {
         background: #92a38f;
     }
 
+    .sayBack {
+        display: none;
+    }
 
     .parkinfo {
         margin-top: 1em;
@@ -566,4 +572,9 @@ ul li img {
 .section img.swing {
     text-align: left;
     float: left;
+}
+
+#search label.formgroup {
+    display: inline;
+    width: auto;
 }

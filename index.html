@@ -34,34 +34,39 @@
                     <img id="hill" src="images/parkoo_beta_Logo.png" alt="Park Finder" title="Parkoo!" />
                     <img id="small" src="images/Parkoo_Beta_Logo_Small.png" alt="Park Finder" title="Parkoo!" />
                 </div>
-                <h1 class="centerSay">...find something new and beautiful...</h1>
-                <div ng-show="navi.isSelected(1)">
+                <div class="banner">
+                    <img src="images/lake_Rainbow.jpg" alt="Park Finder" title="Parkoo!"> </img>
+                </div>
+                <div class="sayBack">
+                    <h1 class="centerSay">...find something new and beautiful...</h1>
+                </div>
+                <div ng-show="navi.isSelected(1)" class="searching">
                     <div class="container mt-sm-3">
                         <div class="row justify-content-center">
-                            <div class="card">
+                            <div class="card" style="background-color: #dadbd8">
                                 <div class="card-body">
                                     <div class="form-row mb-2">
                                         <div class="col text-center">
                                             <label class="col-form-label" for="searchQuery">
-                                            I found {{(parks|myFilter:searchText).length}} parks meeting that criteria
-                                        </label>
+                                                I found {{(parks|myFilter:searchText).length}} parks meeting that criteria
+                                            </label>
                                             <br />
                                         </div>
                                         <div class="form-row col-12">
                                             <input class="form-control" type="text" id="searchQuery" placeholder="Search..." autofocus ng-model="searchText">
                                         </div>
                                         <div class="form-row col-12">
-                                            <div class="container" name="selectordiv">
-                                                <div class="row">
+                                            <div class="container">
+                                                <div class="row" id="sort">
                                                     <div class="col-sm-6">
                                                         <select class="form-control" ng-model="parkOrder">
-                                                    <option value="parkName">Park Name</option>
-                                                    <option value="city">City</option>
-                                                </select>
+                                                            <option value="parkName">Park Name</option>
+                                                            <option value="city">City</option>
+                                                        </select>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <select class="form-control" ng-model="display">
-                                                    <option value="5" disabled>List - Parks</option>
+                                                    <option value="5" disabled>List # Parks</option>
                                                     <option Value = "5">List 5 Parks</option>
                                                     <option Value = "10">List 10 Parks</option>
                                                     <option Value = "25">List 25 Parks</option>
@@ -70,7 +75,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="container">
+                                            <div class="container sort">
                                                 <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked>asc</label>&nbsp;&nbsp;
                                                 <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
                                             </div>
@@ -84,14 +89,14 @@
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12 col-sm-9 col-md-7 col-lg-5">
-                                <ul class="list-group d-flex">
-                                    <li class="list-group-item" ng-repeat="items in parks |  myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
+                                <ul class="list-group d-flex parksList">
+                                    <li class="list-group-item parksList" ng-repeat="items in parks |  myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
                                         <a id="paLi" style="cursor: pointer" href="#" ng-click="parkIndex(items); navi.selectTab(4)">
                                             <div class="media d-flex align-items-center">
                                                 <div class="media-body">
-                                                    <h5 class="my-0 text-dark">{{items.parkName | uppercase}}</h5>
-                                                    <div class="text-secondary font-italic">{{items.streetAddress}}<br /> {{items.city}}, {{items.zipCode}}
-                                                    </div>
+                                                    <h2 class="my-0 text-dark">{{items.parkName | uppercase}}</h5>
+                                                        <div class="font-italic">{{items.streetAddress}}<br /> {{items.city}}, {{items.zipCode}}
+                                                        </div>
                                                 </div>
                                             </div>
                                         </a>
