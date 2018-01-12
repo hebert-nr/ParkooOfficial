@@ -115,7 +115,7 @@
                 </div>
                 <div ng-show="navi.isSelected(4)" class="parkinfo">
                     <h2> {{parkDetail.parkName}}</h2>
-                    <a id="r" ng-click="">
+                    <a id="r" target="_blank" href="https://www.google.com/maps/@{{parkDetail.latitude}},{{parkDetail.longitude}},17z">
                         <p>{{parkDetail.streetAddress}}, {{parkDetail.city}}</p>
                     </a>
                     <hr>
@@ -142,22 +142,6 @@
                 </ul>
             </div>
         </footer>
-
-        <script>
-            document.addEventListener("deviceready", onDeviceReady, false);
-
-            function onDeviceReady() {
-                console.log(navigator.notification);
-            }
-
-            function onPrompt() {
-                confirm("Ok");
-            }
-
-
-            navigator.notification.alert("Parkoo BETA currently only houses information for Pierce, Thurston and parts of South King County in Washington state.  There is also an incomplete list of state parks in Washington as well. More to come soon!", onPrompt, "BETA", OK);
-
-        </script>
 
 </body>
 
