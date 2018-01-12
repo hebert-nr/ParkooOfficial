@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.parkoo" version="0.2.0" versionCode="1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.phonegap.parkoo" version="0.2.2" versionCode="1">
 
     <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="Orientation" value="portrait" />
     <preference name="SplashScreenDelay" value="3000" />
+    <preference name="Fullscreen" value="true" />
+    <preference name="BackgroundColor" value="0xff0000ff" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
 
 
     <name>Parkoo Park Finder (BETA)</name>
+    <description>
+        !!!BETA VERSION!!! Still in test mode -Incomplete Data, Social Media links not working,Big plans for the future including: ~profiles ~ratings ~functioning maps ~location setter ~advanced search ~pagination
+    </description>
+
+    <author email="parkoo.staff@gmail.com" href="https://www.facebook.com/parkooparks">
+        Parkoo Team
+    </author>
+
     <content src="index.html" />
+
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
 
     <platform name="android">
         <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="ldpi" />
@@ -22,25 +44,6 @@
     </platform>
 
 
-    <description>
-        <h3 style="color:#005406;">!!!BETA VERSION!!!</h3>
-        <h3><strong>Still in test mode </strong></h3>
-        <ul>
-            <li>Incomplete Data</li>
-            <li>Social Media accounts are yet to be activated</li>
-            <li>Big plans for the future including:</li>
-        </ul>
-        <ul>
-            <li>profiles</li>
-            <li>ratings</li>
-            <li>functioning maps</li>
-            <li>stronger, more focused search capabilities</li>
-            <li>and maybe more depending on the feedback we receive.. </li>
-        </ul>
-    </description>
 
-    <author email="parkoo.staff@gmail.com">
-        Noah Hebert
-    </author>
 
 </widget>
