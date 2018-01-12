@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://cordova.apache.org/ns/1.0" id="com.phonegap.parkoo" version="0.2.2" versionCode="1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.phonegap.parkoo" version="0.2.2" versionCode="1">
 
     <preference name="phonegap-version" value="cli-7.0.1" />
     <preference name="Orientation" value="portrait" />
-    <preference name="SplashScreenDelay" value="30000" />
     <preference name="Fullscreen" value="true" />
-    <preference name="BackgroundColor" value="0xFF00FF00" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-
+    <plugin name="cordova-plugin-splashscreen" spec="~5.0.1" />
+    <plugin name="cordova-plugin-geolocation" spec="~4.0.1" />
 
     <name>Parkoo Park Finder (BETA)</name>
     <description>
@@ -38,7 +37,11 @@
         <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="xhdpi" />
         <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="xxhdpi" />
         <icon src="images/Parkoo_Icon.png" platform="android" gap:qualifier="fr-xxhdpi" />
-        <splash src="splash.png" />
+        <splash src="splash.png" density="port-ldpi" />
+        <splash src="splash.png" density="port-hdpi" />
+        <splash src="splash.png" density="port-mdpi" />
+        <splash src="splash.png" density="port-xhdpi" />
+
     </platform>
 
 
