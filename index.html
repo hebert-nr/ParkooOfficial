@@ -143,7 +143,21 @@
             </div>
         </footer>
 
+        <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
 
+            function onDeviceReady() {
+                console.log(navigator.notification);
+            }
+
+            function onPrompt() {
+                confirm("Ok");
+            }
+
+
+            navigator.notification.alert("Parkoo BETA currently only houses information for Pierce, Thurston and parts of South King County in Washington state.  There is also an incomplete list of state parks in Washington as well. More to come soon!", onPrompt, "BETA", OK);
+
+        </script>
 
 </body>
 
