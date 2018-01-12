@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; 
+                  style-src * 'self' 'unsafe-inline' 'unsafe-eval'; 
+                  script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -123,28 +126,52 @@
                     <br />
                     <p><a id="e" ng-click="navi.selectTab(1)">Back to Search</a></p>
                 </div>
-            </div>
         </section>
-    </div>
-    <footer>
-        <div class="section">
-            <img class="swing" src="images/treeswing.png" />
         </div>
-        <div class="section">
-            <br />
-            <h3>&#169; 2018 Parkoo</h3>
-        </div>
-        <div class="section">
-            <p>Find us</p>
-            <ul>
-                <li><a href="https://www.facebook.com/parkooparks" target="_blank"><img src="images/fbtap.png" /></a></li>
-                <li><a href="http://instagram.com/parkoobeta" target="_blank"><img src="images/instatap.png" /></a></li>
-            </ul>
-        </div>
-    </footer>
+        <footer>
+            <div class="section">
+                <img class="swing" src="images/treeswing.png" />
+            </div>
+            <div class="section">
+                <br />
+                <h3>&#169; 2018 Parkoo</h3>
+                <button id="exitApp">Exit</button>
+            </div>
+            <div class="section">
+                <p>Find us</p>
+                <ul>
+                    <li><a href="https://www.facebook.com/parkooparks" target="_blank"><img src="images/fbtap.png" /></a></li>
+                    <li><a href="http://instagram.com/parkoobeta" target="_blank"><img src="images/instatap.png" /></a></li>
+                </ul>
+            </div>
+        </footer>
 
 
 
+        <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+                console.log(navigator.notification);
+                // alert("deviceready");
+                document.getElementById('exitApp').addEventListener('click', function() {
+                    navigator.app.exitApp();
+                });
+            }
+
+            function backKeyDown() {
+                navigator.notification.confirm("Are you sure you want to exit?", onConfirm, "Please Confirm", "Yes,No");
+            }
+
+            function onConfirm(button) {
+                if (button == 2) { //If User selected No, then we just do nothing
+                    return;
+                } else {
+                    navigator.app.exitApp(); // Otherwise we quit the app.
+                }
+            }
+
+        </script>
 </body>
 
 <script src="js/jquery-3.2.1.min.js"></script>
