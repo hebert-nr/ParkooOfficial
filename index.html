@@ -122,6 +122,10 @@
                     <h4 style="text-align: center;"> This park includes: </h4>
                     <h4 id="h">{{parkDetail.feature}}.</h4>
                     <br />
+                    <div id="map" style="width:400px;height:400px;background:grey;margin:auto;border: 2px solid #3872ac;">
+
+                    </div>
+                    <br />
                     <p><a id="e" ng-click="navi.selectTab(1)">Back to Search</a></p>
                 </div>
         </section>
@@ -143,6 +147,20 @@
             </div>
         </footer>
 
+        <script>
+            function myMap() {
+                var mapCanvas = document.getElementById("map");
+                var mapOptions = {
+                    center: new google.maps.LatLng(51.5, -0.2),
+                    zoom: 10
+                };
+                var map = new google.maps.Map(mapCanvas, mapOptions);
+            }
+
+        </script>
+
+
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCnTct1oimd-mZG6gLmj4ZqxVtTz7N3fE&callback=myMap" type="text/javascript"></script>
 </body>
 
 <script src="js/jquery-3.2.1.min.js"></script>
