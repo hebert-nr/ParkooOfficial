@@ -122,7 +122,7 @@
                     <h4 style="text-align: center;"> This park includes: </h4>
                     <h4 id="h">{{parkDetail.feature}}.</h4>
                     <br />
-                    <div id="map" style="width:400px;height:400px;background:grey;margin:auto;border: 2px solid #3872ac;">
+                    <div id="map" style="width:100%;height:400px;background:grey;margin:auto;border: 2px solid #3872ac;">
 
                     </div>
                     <br />
@@ -149,12 +149,16 @@
 
         <script>
             function myMap() {
-                var mapCanvas = document.getElementById("map");
-                var mapOptions = {
-                    center: new google.maps.LatLng(51.5, -0.2),
-                    zoom: 10
-                };
-                var map = new google.maps.Map(mapCanvas, mapOptions);
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                        lat: 31.554606,
+                        lng: 74.357158
+                    },
+                    zoom: 14
+                });
+                google.maps.event.addListenerOnce(map, 'idle', function() {
+                    google.maps.event.trigger(map, 'resize');
+                });
             }
 
         </script>
