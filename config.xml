@@ -47,17 +47,20 @@
     <allow-intent href="https://*/*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-intent href="*.google.com" />
+    <allow-intent href="*.googleapis.com" />
+    <allow-intent href=" *.gstatic.com " />
 
-    <!--allows access to resources like "dialer", sms, geolocation, android market or iTunes store.-->
-    <platform name="android">
-        <allow-intent href="market:*" />
+    <!--allows access to resources like "dialer ", sms, geolocation, android market or iTunes store.-->
+    <platform name="android ">
+        <allow-intent href="market:* " />
     </platform>
-    <platform name="ios">
-        <allow-intent href="itms:*" />
-        <allow-intent href="itms-apps:*" />
+    <platform name="ios ">
+        <allow-intent href="itms:* " />
+        <allow-intent href="itms-apps:* " />
     </platform>
 
-    <preference name="android-minSdkVersion" value="21" />
+    <preference name="android-minSdkVersion " value="21 " />
 
 
 </widget>

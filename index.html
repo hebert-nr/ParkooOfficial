@@ -17,6 +17,13 @@
 </head>
 
 <body ng-controller="NavController as navi" style="overflow-x: hidden;">
+    <script>
+        $(document).ready(function() {
+            setTimeout(myMap, 500);
+        });
+
+    </script>
+
 
     <div id="ham">
         <a ng-click="toggle = !toggle"><img src="images/hamenu.png" /></a>
@@ -93,12 +100,12 @@
                             <div class="col-12 col-sm-9 col-md-7 col-lg-5">
                                 <ul class="list-group d-flex parksList">
                                     <li class="list-group-item parksList" ng-repeat="items in parks |  myFilter:searchText | orderBy:parkOrder:direction | limitTo:display ">
-                                        <a id="paLi" style="cursor: pointer" href="#" ng-click="parkIndex(items); navi.selectTab(4)">
+                                        <a id="paLi" style="cursor: pointer" href="#" ng-click="parkIndex(items); navi.selectTab(4);">
                                             <div class="media d-flex align-items-center">
                                                 <div class="media-body">
-                                                    <h2 class="my-0 text-dark">{{items.parkName | uppercase}}</h5>
-                                                        <div class="font-italic">{{items.streetAddress}}<br /> {{items.city}}, {{items.zipCode}}
-                                                        </div>
+                                                    <h2 class="my-0 text-dark">{{items.parkName | uppercase}}</h2>
+                                                    <div class="font-italic">{{items.streetAddress}}<br /> {{items.city}}, {{items.zipCode}}
+                                                    </div>
                                                 </div>
                                             </div>
                                         </a>
@@ -114,18 +121,20 @@
                     </div>
                 </div>
                 <div ng-show="navi.isSelected(4)" class="parkinfo">
-                    <h2> {{parkDetail.parkName}}</h2>
-                    <a id="r" target="_blank" href="https://www.google.com/maps/@{{parkDetail.latitude}},{{parkDetail.longitude}},14.5z">
+                    <h2 id="pkNm"> {{parkDetail.parkName}}</h2>
+                    <a id="r" target="_blank" href="https://www.google.com/maps/embed/v1/place?key=AIzaSyDCnTct1oimd-mZG6gLmj4ZqxVtTz7N3fE&q={{parkDetail.latitude}},{{parkDetail.longitude}}">
                         <p>{{parkDetail.streetAddress}}, {{parkDetail.city}}</p>
                     </a>
                     <hr>
                     <h4 style="text-align: center;"> This park includes: </h4>
                     <h4 id="h">{{parkDetail.feature}}.</h4>
                     <br />
+
                     <div id="map" style="width:100%;height:400px;background:grey;margin:auto;border: 2px solid #3872ac;">
-                        <!--<p id="lati">{{parkDetail.latitude}}</p>
-                        <p id="longi">{{parkDetail.longitude}}</p>-->
+                        <p id="lati">{{parkDetail.latitude}}</p>
+                        <p id="longi">{{parkDetail.longitude}}</p>
                     </div>
+
                     <br />
                     <p><a id="e" ng-click="navi.selectTab(1)">Back to Search</a></p>
                 </div>
@@ -147,27 +156,6 @@
                 </ul>
             </div>
         </footer>
-
-        <script>
-            function myMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {
-                        lat: 47.1144166,
-                        lng: -122.3779357
-                    },
-                    zoom: 14
-                });
-                google.maps.event.addListenerOnce(map, 'idle', function() {
-                    google.maps.event.trigger(map, 'resize');
-                });
-            }
-
-            $(document).ready(function() {
-                setTimeout(myMap, 1000);
-            });
-
-        </script>
-
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCnTct1oimd-mZG6gLmj4ZqxVtTz7N3fE&callback=myMap" type="text/javascript"></script>
 </body>

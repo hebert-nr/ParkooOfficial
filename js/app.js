@@ -1,10 +1,20 @@
 var myApp = angular.module('parkoo', ['ui.bootstrap']);
 
 
+myApp.factory('parkFac', function ($rootScope, $http) {
+    var parkFac = {};
+
+    parkFac.getParks = function () {
+        return $http.get('js/data.json');
+    };
+
+    return parkFac;
+});
+
 
 //pulls the data from our js files
-myApp.controller('MyController', function MyController($scope, $http) {
-    $http.get("js/data.json").then(function (response) {
+myApp.controller('MyController', function MyController($scope, $http, parkFac) {
+    parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName"
         $scope.display = "5";
@@ -59,6 +69,7 @@ myApp.filter('myFilter', ['$filter', function ($filter) {
         });
     };
 }]);
+
 
 
 //dictates which section of the application is showing (true SPA feature)
