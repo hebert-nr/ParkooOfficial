@@ -1,14 +1,33 @@
-var myApp = angular.module('parkoo', ['ui.bootstrap']);
-
+var myApp = angular.module('parkoo', ['ui.bootstrap', 'ngMap']);
 
 
 //pulls the data from our js files
-myApp.controller('MyController', function MyController($scope, $http) {
-    $http.get("js/data.json").then(function (response) {
+myApp.factory('parkFac', function ($rootScope, $http) {
+    var parkFac = {};
+
+    parkFac.getParks = function () {
+        return $http.get('js/data.json');
+    };
+
+    return parkFac;
+});
+
+
+//main control for app, pulling main page information and park details in the sub-pages
+myApp.controller('MyController', function MyController($scope, $http, parkFac, NgMap) {
+    parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName"
         $scope.display = "5";
+
     });
+
+    NgMap.getMap().then(function (map) {
+        console.log(map.getCenter());
+        console.log('markers', map.markers);
+        console.log('shapes', map.shapes);
+    });
+
 
     $scope.pageChangeHandler = function (num) {
         console.log('parks page changed to ' + num);
@@ -22,7 +41,6 @@ myApp.controller('MyController', function MyController($scope, $http) {
     });
 
 });
-
 
 
 //Allows for multiple words searched separated by space
