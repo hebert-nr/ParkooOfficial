@@ -1,6 +1,7 @@
-var myApp = angular.module('parkoo', ['ui.bootstrap']);
+var myApp = angular.module('parkoo', ['ui.bootstrap', 'ngMap']);
 
 
+//pulls the data from our js files
 myApp.factory('parkFac', function ($rootScope, $http) {
     var parkFac = {};
 
@@ -12,13 +13,21 @@ myApp.factory('parkFac', function ($rootScope, $http) {
 });
 
 
-//pulls the data from our js files
-myApp.controller('MyController', function MyController($scope, $http, parkFac) {
+//main control for app, pulling main page information and park details in the sub-pages
+myApp.controller('MyController', function MyController($scope, $http, parkFac, NgMap) {
     parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName"
         $scope.display = "5";
+
     });
+
+    NgMap.getMap().then(function (map) {
+        console.log(map.getCenter());
+        console.log('markers', map.markers);
+        console.log('shapes', map.shapes);
+    });
+
 
     $scope.pageChangeHandler = function (num) {
         console.log('parks page changed to ' + num);
@@ -32,7 +41,6 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac) {
     });
 
 });
-
 
 
 //Allows for multiple words searched separated by space
@@ -69,7 +77,6 @@ myApp.filter('myFilter', ['$filter', function ($filter) {
         });
     };
 }]);
-
 
 
 //dictates which section of the application is showing (true SPA feature)
