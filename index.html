@@ -132,7 +132,7 @@
                     <h4 id="h">{{parkDetail.feature}}</h4>
                     <br />
                     <div>
-                        <div map-lazy-load="https://maps.google.com/maps/api/js" style="width:100%; height:400px;" map-lazy-load-params="{{googleMapsUrl}}">
+                        <div id="map" map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}">
                             <ng-map center="{{parkDetail.latitude}},{{parkDetail.longitude}}" zoom="15"></ng-map>
                         </div>
                     </div>
@@ -159,10 +159,7 @@
         </footer>
 
         <script>
-            function check_is_in_or_out(marker) {
-                return map.getBounds().contains(marker.getPosition());
-            }
-            google.maps.event.trigger(map, “resize”);
+
 
         </script>
 
