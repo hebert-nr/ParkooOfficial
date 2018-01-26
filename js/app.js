@@ -1,7 +1,7 @@
 var myApp = angular.module('parkoo', ['ui.bootstrap', 'ngMap']);
 
 
-//pulls the data from our js files
+//pulls all the data from our json files 
 myApp.factory('parkFac', function ($rootScope, $http) {
     var parkFac = {};
 
@@ -13,14 +13,20 @@ myApp.factory('parkFac', function ($rootScope, $http) {
 });
 
 
-//main control for app, pulling main page information and park details in the sub-pages
+
+//main control for app, setting main page information, park details in the sub-pages, and instantiating the map
 myApp.controller('MyController', function MyController($scope, $http, parkFac, NgMap) {
     parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
-        $scope.parkOrder = "parkName"
+        $scope.parkOrder = "parkName";
         $scope.display = "5";
-
+        $scope.latlng = ["latitude", "longitude"];
+        $scope.getpos= function(event){
+            $scope.latlng = [event.latLng.lat(), event.latLng.lng()]
+        };
     });
+    
+    
 
     NgMap.getMap().then(function (map) {
         console.log(map.getCenter());
