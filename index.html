@@ -96,7 +96,7 @@
                             <div class="col-12 col-sm-9 col-md-7 col-lg-5">
                                 <ul class="list-group d-flex parksList">
                                     <li class="list-group-item parksList" ng-repeat="items in parks |  myFilter:searchText | orderBy:parkOrder:direction | limitTo:display">
-                                        <a id="paLi" style="cursor: pointer" href="# " ng-click="parkIndex(items); navi.selectTab(4);">
+                                        <a id="paLi" style="cursor: pointer" href="#" ng-click="parkIndex(items); navi.selectTab(4);">
                                             <div class="media d-flex align-items-center ">
                                                 <div class="media-body">
                                                     <h2 class="my-0 text-dark">{{items.parkName | uppercase}}</h2>
