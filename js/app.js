@@ -1,4 +1,4 @@
-var myApp = angular.module('parkoo', ['ui.bootstrap']);
+var myApp = angular.module('parkoo', ['ui.bootstrap', 'ngMap']);
 
 
 //pulls all the data from our json files 
@@ -6,7 +6,7 @@ myApp.factory('parkFac', function ($rootScope, $http) {
     var parkFac = {};
 
     parkFac.getParks = function () {
-        return $http.get('js/data.json');
+        return $http.get('js/data1.json');
     };
 
     return parkFac;
@@ -14,24 +14,31 @@ myApp.factory('parkFac', function ($rootScope, $http) {
 
 
 
-//main control for app, setting main page information, park details in the sub-pages, and instantiating the map
-myApp.controller('MyController', function MyController($scope, $http, parkFac) {
+//main control for app, pulling main page information and park details in the sub-pages
+myApp.controller('MyController', function MyController($scope, $http, parkFac, NgMap) {
+
     parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName";
         $scope.display = "5";
-        $scope.latlng = ["latitude", "longitude"];
-        $scope.getpos= function(event){
-            $scope.latlng = [event.latLng.lat(), event.latLng.lng()]
-        };
+        
     });
-    
+
+    NgMap.getMap().then(function (map) {
+        console.log(map.getCenter());
+        console.log('markers', map.markers);
+        console.log('shapes', map.shapes);
+    });
+
+
     $scope.pageChangeHandler = function (num) {
         console.log('parks page changed to ' + num);
     };
 
     $scope.parkIndex = function (i) {
         $scope.parkDetail = i;
+        $scope.latitude = i.latitude;
+        $scope.longitude = i.longitude;
     };
     $scope.$on('$destroy', function () {
         window.onbeforeunload = undefined;
