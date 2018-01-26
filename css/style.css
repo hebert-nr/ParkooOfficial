@@ -7,7 +7,6 @@ body {
 }
 
 
-
 .nav,
 .pagination,
 .carousel,
@@ -213,7 +212,7 @@ ul {
 }
 
 #mapLink {
-    margin-left:45%;
+    margin-left: 45%;
     cursor: pointer;
     color: blue;
     text-shadow: 0 0 #eee;
@@ -503,9 +502,9 @@ ul li img {
 
 @media screen and (max-width:740px) {
     #mapLink {
-        font-size:1.4em;
+        font-size: 1.4em;
     }
-    
+
     body {
         padding: 0;
         margin: 0;
