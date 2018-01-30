@@ -20,13 +20,14 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac, N
     parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkId";
-        $scope.display = "5";
-        
+        $scope.display = "10";
+
         $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E';
     });
 
     NgMap.getMap().then(function (map) {
-        
+
+        google.maps.event.trigger(map, 'resize');
         console.log(map.getCenter());
         console.log('markers', map.markers);
         console.log('shapes', map.shapes);

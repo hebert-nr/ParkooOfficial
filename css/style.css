@@ -211,14 +211,6 @@ ul {
     z-index: 20;
 }
 
-#mapLink {
-    margin-left: 45%;
-    cursor: pointer;
-    color: blue;
-    text-shadow: 0 0 #eee;
-    text-decoration: underline;
-}
-
 .show {
     transition: opacity 400ms;
 }
@@ -279,13 +271,26 @@ h4 {
     color: #bbb;
 }
 
+#e {
+    font-size: 1.4em;
+}
+
 #e:hover {
+
     cursor: pointer;
-    color: #666;
+    color: green;
 }
 
 #r {
+
     color: #ccc;
+}
+
+#mapLink {
+    cursor: pointer;
+    color: blue;
+    text-shadow: 0 0 #eee;
+    text-decoration: underline;
 }
 
 .parkinfo p {
