@@ -41,6 +41,7 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac, N
                 $scope.$apply(function () {
                     $scope.lat = mysrclat;
                     $scope.lan = mysrclong;
+                    NgMap.getMap();
                 })
             });
         }
@@ -49,7 +50,6 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac, N
 
 
     NgMap.getMap().then(function (map) {
-
         google.maps.event.trigger(map, 'resize');
         console.log(map.getCenter());
         console.log('markers', map.markers);

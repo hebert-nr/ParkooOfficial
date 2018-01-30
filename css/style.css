@@ -271,12 +271,13 @@ h4 {
     color: #bbb;
 }
 
-#e {
+.e {
+    text-align: center;
+    color: #000;
     font-size: 1.4em;
 }
 
-#e:hover {
-
+.e:hover {
     cursor: pointer;
     color: green;
 }
@@ -291,6 +292,20 @@ h4 {
     color: blue;
     text-shadow: 0 0 #eee;
     text-decoration: underline;
+}
+
+div.mapcontainer {
+    display: block;
+    text-align: center;
+    background-image: url("https://maps.googleapis.com/maps/api/staticmap?center={{parkDetail.latitude}},{{parkDetail.longitude}}&zoom=16&size=640x480&maptype=roadmap&markers=color:red%7Clabel:{{parkDetail.parkName}}%7C{{parkDetail.latitude}},{{parkDetail.longitude}}&key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    line-height: 0;
+}
+
+.mapcontainer img {
+    max-width: 100%;
+    
 }
 
 .parkinfo p {
