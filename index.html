@@ -52,6 +52,7 @@
                 <div class="sayBack">
                     <h1 class="centerSay">...find something new and beautiful...</h1>
                 </div>
+
                 <div ng-show="navi.isSelected(1)" class="searching">
                     <div class="container mt-sm-3">
                         <div class="row justify-content-center">
@@ -90,7 +91,13 @@
                                             <div class="container sort">
                                                 <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked>asc</label>&nbsp;&nbsp;
                                                 <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
+                                                <div style="float:right">
+                                                    <a id="r" ng-click="nearme()" target="_blank" href="https://www.google.com/maps/search/park/@{{elat}},{{elan}}">
+                                                    <label class="btn btn-light">Near Me</label>
+                                                </a>
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -131,6 +138,8 @@
                             <label id="mapLink">(map)</label>
                         </a>
                     </div>
+                    <hr>
+                    <p><a id="e" ng-click="navi.selectTab(1)">Back to Search</a></p>
                     <hr>
                     <h4 style="text-align: center;"> This park includes: </h4>
                     <h4 id="h">{{parkDetail.feature}}</h4>

@@ -25,6 +25,29 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac, N
         $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E';
     });
 
+
+    var lat = 0;
+    var lan = 0;
+    var mysrclat = 0;
+    var mysrclong = 0;
+    $scope.mysrclat = ''
+    $scope.nearme = function () {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                mysrclat = position.coords.latitude;
+                mysrclong = position.coords.longitude;
+                console.log("lat", mysrclat);
+                console.log("ong", mysrclong);
+                $scope.$apply(function () {
+                    $scope.lat = mysrclat;
+                    $scope.lan = mysrclong;
+                })
+            });
+        }
+
+    }
+
+
     NgMap.getMap().then(function (map) {
 
         google.maps.event.trigger(map, 'resize');
