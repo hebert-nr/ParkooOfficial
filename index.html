@@ -139,18 +139,18 @@
                         </a>
                     </div>
                     <hr>
-                    <div class="e"><a ng-click="navi.selectTab(1)">&lt;&lt;&nbsp;Back to Search</a></div>
+                    <div class="e"><a class="btn btn-light" href="#" ng-click="navi.selectTab(1)">Back to Search</a></div>
                     <hr>
                     <h4 style="text-align: center;"> This park includes: </h4>
                     <h4 id="h">{{parkDetail.feature}}</h4>
                     <br />
 
                     <div class="mapcontainer">
-                        <img src="https://maps.googleapis.com/maps/api/staticmap?center={{parkDetail.latitude}},{{parkDetail.longitude}}&zoom=16&size=640x480&maptype=roadmap&markers=color:red%7Clabel:{{parkDetail.parkName}}%7C{{parkDetail.latitude}},{{parkDetail.longitude}}&key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E" />
+                        <img src="https://maps.googleapis.com/maps/api/staticmap?center={{parkDetail.latitude}},{{parkDetail.longitude}}&zoom=17&size=640x480&maptype=roadmap&markers=color:red%7Clabel:{{parkDetail.parkName}}%7C{{parkDetail.latitude}},{{parkDetail.longitude}}&key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E" />
                     </div>
 
                     <br />
-                    <div class="e"><a ng-click="navi.selectTab(1)" class="btn btn-light">Back to Search</a></div>
+                    <div class="e"><a ng-click="navi.selectTab(1)" href="#" class="btn btn-light">Back to Search</a></div>
                 </div>
             </div>
         </section>
@@ -180,11 +180,14 @@
             <hr />
             <h4><strong>Where did Parkoo come from??</strong></h4>
             <hr />
-            <h5>As my kids have grown older, our time together becomes more and more important. My boys' desire to go to new places culminated with me no longer wanted to spend hours on Google map looking for a new park to visit helped guide me to this. A list of places we'd visited with the features offered at each location.</h5>
+            <h5>As my kids have grown older, our time together becomes more and more important. Between their desire to explore new places along with my disdain of spending hours on Google maps, looking for a new park to visit helped guide me to this. A list of places we had visited with the features offered at each location.</h5>
 
-            <h5>Now, with the technological science we have available to us, we want to offer our "research" to everybody else. It's important to get out and find something new and beautiful, to share with your loved ones, your pets or even your inner child. </h5>
+            <h5>Now, thanks to technology, we want to offer our "research" to everybody else. It's important to get out and find something new and beautiful to share with your loved ones, your pets or even your inner child. </h5>
 
-            <h5>While this app is in no way perfect, I hope it at least helps you and those who matter most to you find somewhere new to play, to fish, or to just get outside.</h5>
+            <h5>While this app is in no way perfect, I hope it at least helps you and those who matter most to you find somewhere new to play, to fish, or to just get outside.
+            And if you see something that needs to be updated, please contact us on Facebook, Instagram, or email.  
+            </h5>
+            
             <a ng-click="navi.selectTab(1)">Back to Search</a>
         </div>
     </div>

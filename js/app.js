@@ -1,4 +1,4 @@
-var myApp = angular.module('parkoo', ['ui.bootstrap', 'ngMap']);
+var myApp = angular.module('parkoo', ['ui.bootstrap']);
 
 
 //pulls all the data from our json files 
@@ -14,12 +14,12 @@ myApp.factory('parkFac', function ($rootScope, $http) {
 
 
 
-//main control for app, pulling main page information and park details in the sub-pages
-myApp.controller('MyController', function MyController($scope, $http, parkFac, NgMap) {
+//main control for app, pulling main page information and park details in the sub-pages, as well as data pertaining to the nearby map
+myApp.controller('MyController', function MyController($scope, $http, parkFac) {
 
     parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
-        $scope.parkOrder = "parkId";
+        $scope.parkOrder = "parkName";
         $scope.display = "10";
 
         $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E';
@@ -41,20 +41,11 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac, N
                 $scope.$apply(function () {
                     $scope.lat = mysrclat;
                     $scope.lan = mysrclong;
-                    NgMap.getMap();
                 })
             });
         }
 
     }
-
-
-    NgMap.getMap().then(function (map) {
-        google.maps.event.trigger(map, 'resize');
-        console.log(map.getCenter());
-        console.log('markers', map.markers);
-        console.log('shapes', map.shapes);
-    });
 
 
     $scope.pageChangeHandler = function (num) {
