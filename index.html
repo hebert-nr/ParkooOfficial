@@ -23,6 +23,14 @@
 
     </style>
 
+    <a onclick="topFunction()" id="myBtn" style="margin:0; padding: 0;" title="Go to top">
+        <picture>
+            <source media="(min-width: 740px)" srcset="images/bigToTop.png">
+            <source media="(min-width: 300px)" srcset="images/toTop.png">
+            <img src="OtherImage.png" alt="IfItDoesntMatchAnyMedia">
+        </picture>
+    </a>
+
     <title>Parkoo</title>
 
 </head>
@@ -184,12 +192,13 @@
 
             <h5>Now, thanks to technology, we want to offer our "research" to everybody else. It's important to get out and find something new and beautiful to share with your loved ones, your pets or even your inner child. </h5>
 
-            <h5>While this app is in no way perfect, I hope it at least helps you and those who matter most to you find somewhere new to play, to fish, or to just get outside.
-            And if you see something that needs to be updated, please contact us on Facebook, Instagram, or email.  
+            <h5>While this app is in no way perfect, I hope it at least helps you and those who matter most to you find somewhere new to play, to fish, or to just get outside. And if you see something that needs to be updated, please contact us on Facebook, Instagram, or email.
             </h5>
-            
-            <a ng-click="navi.selectTab(1)">Back to Search</a>
+
         </div>
+        <div class="e"><a class="btn btn-light" href="#" ng-click="navi.selectTab(1)">Back to Search</a></div>
+        <br />
+        <br />
     </div>
     <footer>
         <div class="section">
@@ -202,16 +211,42 @@
         <div class="section">
             <p>Find us</p>
             <ul>
-                <li><a href="https://www.facebook.com/parkooparks " target="_blank "><img src="images/fbtap.png " /></a></li>
-                <li><a href="http://instagram.com/parkoobeta " target="_blank "><img src="images/instatap.png " /></a></li>
+                <li><a href="https://www.facebook.com/parkooparks" title="Parkoo Facebook" target="_blank "><img src="images/fbtap.png " /></a></li>
+                <li><a href="http://instagram.com/parkoobeta" title="Parkoo Instagram" target="_blank "><img src="images/instatap.png " /></a></li>
             </ul>
+            <br/><br/>
+
         </div>
     </footer>
 
 
     <script async defer type="text/javascript "></script>
     <!--    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E&callback=myMap "-->
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
+
 </body>
+
+
 
 <script src="js/jquery-3.2.1.min.js "></script>
 <script src="js/bootstrap.min.js "></script>

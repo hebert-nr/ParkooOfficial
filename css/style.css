@@ -266,14 +266,8 @@ h4 {
     text-shadow: 2px 1px 1px #000;
 }
 
-.parkinfo a {
-    text-decoration: none;
-    color: #bbb;
-}
-
 .e {
     text-align: center;
-    color: #000;
     font-size: 1.4em;
 }
 
@@ -285,6 +279,10 @@ h4 {
 #r {
 
     color: #ccc;
+}
+
+.btn btn-light {
+    color: #777;
 }
 
 #mapLink {
@@ -304,7 +302,7 @@ div.mapcontainer {
 
 .mapcontainer img {
     max-width: 100%;
-    
+
 }
 
 .parkinfo p {
@@ -455,6 +453,22 @@ ul li img {
     border-bottom: 3px solid cornsilk;
 }
 
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 44%;
+    z-index: 99;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
+
+
 /* ------------------------------------------------------------------------------------------*/
 
 /* ------------------------*-------BEGIN MEDIA QUERY-------*---------------------------------*/
@@ -520,6 +534,22 @@ ul li img {
 }
 
 @media screen and (max-width:740px) {
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 43%;
+        z-index: 99;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+
+
     #mapLink {
         font-size: 1.4em;
     }
