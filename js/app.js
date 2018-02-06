@@ -26,6 +26,15 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac) {
     });
 
 
+    function MyCtrl1($scope) {
+        $scope.$on('$locationChangeStart', function (event) {
+            var answer = confirm("Are you sure you want to leave this page?")
+            if (!answer) {
+                event.preventDefault();
+            }
+        });
+    }
+
     var lat = 0;
     var lan = 0;
     var mysrclat = 0;
