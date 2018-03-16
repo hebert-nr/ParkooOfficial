@@ -31,7 +31,7 @@
 </head>
 
 <body ng-controller="NavController as navi" style="overflow-x: hidden;">
-            <div id="ham">
+            <div id="ham" class="sticky-top">
                 <a ng-click="toggle = !toggle"><img src="images/hamenu.png" /></a>
                 <ul ng-show="toggle">
                     <li><a id="Home" ng-click="navi.selectTab(1); toggle = false">Home</a></li>
@@ -52,9 +52,9 @@
                         <div class="banner">
                             <img src="images/lake_Rainbow.jpg" alt="Park Finder" title="Parkoo!" />
                         </div>
-                        <div class="sayBack">
-                            <h1 class="centerSay">...find something new and beautiful...</h1>
-                        </div>
+                        <!-- <div class="sayBack"> -->
+                            <!-- <h1 class="centerSay">...find something new and beautiful...</h1> -->
+                        <!-- </div> -->
 
                         <div ng-show="navi.isSelected(1)" class="searching">
                             <div class="container mt-sm-3">
@@ -64,12 +64,12 @@
                                             <div class="form-row mb-2">
                                                 <div class="col text-center">
                                                     <label class="col-form-label" for="searchQuery">
-                                                I found {{(parks|myFilter:searchText).length}} parks meeting that criteria
+                                                I found {{(parks|myFilter:searchText).length}} parks
                                             </label>
                                                     <br />
                                                 </div>
                                                 <div class="form-row col-12">
-                                                    <input class="form-control" type="text" id="searchQuery" placeholder="Search..." autofocus ng-model="searchText">
+                                                    <input class="form-control" type="text" id="searchQuery" placeholder="Search..." autofocus ng-model="searchText" >
                                                 </div>
                                                 <div class="form-row col-12">
                                                     <div class="container">
@@ -172,19 +172,30 @@
                     </p>
 					
                     <h3><strong>Still in test mode </strong></h3>
+					<div class="hod">
                     <ul>
-                        <li>Contains minimal data for test purposes</li>
-                        <li>Big plans for the future including:
+                        <li><p>Contains minimal data for test purposes</p></li>
+						<li><p>Current data consists of: </p>
+							<ul>
+								<li><p>Pierce County Washington</p></li>
+								<li><p>Thurston County Washington</p></li>
+								<li><p>Part of South King County Washington</p></li>
+								<li><p>State parks of Washington</p></li>
+								<li><p>1 park from the other 50 states for testability</p></li>
+							</ul>
+						</li>
+                        <li><p>Big plans for the future including:</p>
                                 <ul>
-                                    <li>better mobile functionality of maps</li>
-									<li>back button functionality</li>
-                                    <li>user profiles</li>
-                                    <li>geo-location</li>
-                                    <li>park rating system</li>
-                                    <li>and more depending on the feedback/help we receive.</li>
+                                    <li><p>better mobile functionality of maps</p></li>
+									<li><p>back button functionality</p></li>
+                                    <li><p>user profiles</p></li>
+                                    <li><p>geo-location</p></li>
+                                    <li><p>park rating system</p></li>
+                                    <li><p>and more depending on the feedback/help we receive.</p></li>
                                 </ul>
                         </li>
                     </ul>
+					</div>
                 </div>
                 <div class="e"><a class="btn btn-light" href="#" ng-click="navi.selectTab(1)">Back to Search</a></div>
                 <br />
@@ -216,6 +227,7 @@
                 // When the user scrolls down, show the button based on screen size
                 window.onscroll = function() {
                     scrollFunction()
+					stickyFunction()
                 };
 
                 function scrollFunction() {
@@ -239,7 +251,8 @@
                     document.body.scrollTop = 0;
                     document.documentElement.scrollTop = 0;
                 }
-							
+				
+				
 				
             </script>
 </body>

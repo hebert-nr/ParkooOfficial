@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.phonegap.parkoo" version="0.9.6" versionCode="1">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="com.phonegap.parkoo" version="0.10.4" versionCode="1">
 
     <preference name="phonegap-version" value="cli-8.0.0" />
     <preference name="Orientation" value="portrait" />
@@ -13,7 +13,7 @@
 
     <name>Parkoo Park Finder (BETA)</name>
     <description>
-        !!!BETA VERSION!!! Still in test mode -Incomplete Data. Big plans for the future including: ~profiles ~ratings ~functioning maps ~location setter ~advanced search ~pagination
+        !!!BETA VERSION!!! Still in test mode -Incomplete Data. Big plans for the future including: !a back button that works ~profiles ~ratings ~functioning maps ~location setter ~advanced search ~pagination
     </description>
 
     <author email="parkoo.staff@gmail.com" href="https://www.facebook.com/parkooparks">

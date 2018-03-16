@@ -97,6 +97,7 @@ li {
     padding: 12px;
 }
 
+
 #small {
     visibility: hidden;
     display: none;
@@ -146,18 +147,6 @@ ul {
 #aboutMe a:hover {
     color: #ccc;
     font-size: 1.3em;
-}
-
-#aboutMe ul {
-
-    list-style-type: disc;
-    list-style-position: inside;
-}
-
-#aboutMe li {
-    display: list-item;
-    text-align: left;
-    color: #005406;
 }
 
 #h {
@@ -644,3 +633,21 @@ ul li img {
     display: inline;
     width: auto;
 }
+
+.hod p{
+	padding: 0 !important;
+}
+
+.hod ul{
+	padding: 0 !important;
+	margin: 0 !important;
+	}
+	
+.hod li{
+	padding-left: 20px !important;
+	margin: 0 !important;
+	display:block;
+	text-align:left;
+	list-style-type: disc;
+    list-style-position: inside;
+	}	
