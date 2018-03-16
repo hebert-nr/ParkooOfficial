@@ -15,7 +15,7 @@ myApp.factory('parkFac', function ($rootScope, $http) {
 
 
 //main control for app, pulling main page information and park details in the sub-pages, as well as data pertaining to the nearby map
-myApp.controller('MyController', function MyController($scope, $http, parkFac) {
+myApp.controller('MyController', function MyController($scope, $http, parkFac, $window) {
 
     parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
@@ -39,12 +39,14 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac) {
     var lan = 0;
     var mysrclat = 0;
     var mysrclong = 0;
-    $scope.mysrclat = ''
     $scope.nearme = function () {
         if (navigator.geolocation) {
+			
             navigator.geolocation.getCurrentPosition(function (position) {
                 mysrclat = position.coords.latitude;
                 mysrclong = position.coords.longitude;
+				
+				$window.open("https://www.google.com/maps/search/park/@"+mysrclat+","+mysrclong);
                 console.log("lat", mysrclat);
                 console.log("ong", mysrclong);
                 $scope.$apply(function () {
@@ -53,9 +55,7 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac) {
                 })
             });
         }
-
     }
-
 
     $scope.pageChangeHandler = function (num) {
         console.log('parks page changed to ' + num);

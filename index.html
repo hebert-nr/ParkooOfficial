@@ -31,222 +31,217 @@
 </head>
 
 <body ng-controller="NavController as navi" style="overflow-x: hidden;">
-    <div id="ham">
-        <a ng-click="toggle = !toggle"><img src="images/hamenu.png" /></a>
-        <ul ng-show="toggle">
-            <li><a id="Home" ng-click="navi.selectTab(1); toggle = false">Home</a></li>
-            <li><a id="About" ng-click="navi.selectTab(2); toggle = false">About</a></li>
-            <li><a id="Contact" href="mailto:parkoo.staff@gmail.com" ng-click="toggle = false">Contact</a></li>
-            <!-- <li><a id="Settings" ng-click="navi.selectTab(5);  toggle = false">Settings</a></li> -->
-            <!-- <li><a id="Review" ng-href="#"  ng-click="toggle = false">Rate/Review</a></li> -->
-        </ul>
-    </div>
+            <div id="ham">
+                <a ng-click="toggle = !toggle"><img src="images/hamenu.png" /></a>
+                <ul ng-show="toggle">
+                    <li><a id="Home" ng-click="navi.selectTab(1); toggle = false">Home</a></li>
+                    <li><a id="About" ng-click="navi.selectTab(2); toggle = false">About</a></li>
+                    <li><a id="Contact" href="mailto:parkoo.staff@gmail.com" ng-click="toggle = false">Contact</a></li>
+                    <!-- <li><a id="Settings" ng-click="navi.selectTab(5);  toggle = false">Settings</a></li> -->
+                    <!-- <li><a id="Review" ng-href="#"  ng-click="toggle = false">Rate/Review</a></li> -->
+                </ul>
+            </div>
 
-    <div class="searching">
-        <section ng-controller="MyController">
-            <div id="wrapper">
-                <div id="head">
-                    <img id="hill" src="images/parkoo_beta_Logo.png" alt="Park Finder" title="Parkoo!" />
-                    <img id="small" src="images/Parkoo_Beta_Logo_Small.png" alt="Park Finder" title="Parkoo!" />
-                </div>
-                <div class="banner">
-                    <img src="images/lake_Rainbow.jpg" alt="Park Finder" title="Parkoo!" />
-                </div>
-                <div class="sayBack">
-                    <h1 class="centerSay">...find something new and beautiful...</h1>
-                </div>
+            <div class="searching">
+                <section ng-controller="MyController">
+                    <div id="wrapper">
+                        <div id="head">
+                            <img id="hill" src="images/parkoo_beta_Logo.png" alt="Park Finder" title="Parkoo!" />
+                            <img id="small" src="images/Parkoo_Beta_Logo_Small.png" alt="Park Finder" title="Parkoo!" />
+                        </div>
+                        <div class="banner">
+                            <img src="images/lake_Rainbow.jpg" alt="Park Finder" title="Parkoo!" />
+                        </div>
+                        <div class="sayBack">
+                            <h1 class="centerSay">...find something new and beautiful...</h1>
+                        </div>
 
-                <div ng-show="navi.isSelected(1)" class="searching">
-                    <div class="container mt-sm-3">
-                        <div class="row justify-content-center">
-                            <div class="card" style="background-color: #dadbd8">
-                                <div class="card-body">
-                                    <div class="form-row mb-2">
-                                        <div class="col text-center">
-                                            <label class="col-form-label" for="searchQuery">
+                        <div ng-show="navi.isSelected(1)" class="searching">
+                            <div class="container mt-sm-3">
+                                <div class="row justify-content-center">
+                                    <div class="card" style="background-color: #dadbd8">
+                                        <div class="card-body">
+                                            <div class="form-row mb-2">
+                                                <div class="col text-center">
+                                                    <label class="col-form-label" for="searchQuery">
                                                 I found {{(parks|myFilter:searchText).length}} parks meeting that criteria
                                             </label>
-                                            <br />
-                                        </div>
-                                        <div class="form-row col-12">
-                                            <input class="form-control" type="text" id="searchQuery" placeholder="Search..." autofocus ng-model="searchText">
-                                        </div>
-                                        <div class="form-row col-12">
-                                            <div class="container">
-                                                <div class="row" id="sort">
-                                                    <div class="col-sm-6">
-                                                        <select class="form-control" ng-model="parkOrder">
+                                                    <br />
+                                                </div>
+                                                <div class="form-row col-12">
+                                                    <input class="form-control" type="text" id="searchQuery" placeholder="Search..." autofocus ng-model="searchText">
+                                                </div>
+                                                <div class="form-row col-12">
+                                                    <div class="container">
+                                                        <div class="row" id="sort">
+                                                            <div class="col-sm-6">
+                                                                <select class="form-control" ng-model="parkOrder">
                                                             <option value="parkName">Park Name</option>
                                                             <option value="city">City</option>
                                                         </select>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <select class="form-control" ng-model="display">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <select class="form-control" ng-model="display">
                                                     <option value="5" disabled>List # Parks</option>
                                                     <option Value = "5">List 5 Parks</option>
                                                     <option Value = "10">List 10 Parks</option>
                                                     <option Value = "25">List 25 Parks</option>
                                                     <option Value = "50">List 50 Parks</option>
                                                 </select>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="container sort">
-                                                <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked>asc</label>&nbsp;&nbsp;
-                                                <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
-                                                <div style="float:right">
-                                                    <a id="r" ng-click="nearme()" target="_blank" href="https://www.google.com/maps/search/park/@{{elat}},{{elan}}">
-                                                    <label class="btn btn-light">Near Me</label>
-                                                </a>
-                                                </div>
-                                            </div>
+                                                    <div class="container sort">
+                                                        <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" checked>asc</label>&nbsp;&nbsp;
+                                                        <label class="form-check-label"><input ng-model="direction" class="form-check-input" type="radio" name="direction" value="reverse">desc</label>
+                                                        <div style="float:right">
+                                                            <!-- <a id="r"  target="_blank" href="https://www.google.com/maps/search/park/@{{lat}},{{lan}}"> -->
+																<label ng-click="nearme()" class="btn btn-light" target="_blank">Near Me</label>
+															<!-- </a> -->
+                                                        </div>
+                                                    </div>
 
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-sm-9 col-md-7 col-lg-5">
-                                <ul class="list-group d-flex parksList">
-                                    <li class="list-group-item parksList" ng-repeat="items in parks |  myFilter:searchText | orderBy:parkOrder:direction | limitTo:display">
-                                        <a id="paLi" style="cursor: pointer" ng-click="parkIndex(items); navi.selectTab(4);">
-                                            <div class="media d-flex align-items-center ">
-                                                <div class="media-body">
-                                                    <h2 class="my-0 text-dark">{{items.parkName | uppercase}}</h2>
-                                                    <div class="font-italic">{{items.streetAddress}}<br /> {{items.city}}, {{items.zipCode}}
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-sm-9 col-md-7 col-lg-5">
+                                        <ul class="list-group d-flex parksList">
+                                            <li class="list-group-item parksList" ng-repeat="items in parks |  myFilter:searchText | orderBy:parkOrder:direction | limitTo:display">
+                                                <a id="paLi" style="cursor: pointer" ng-click="parkIndex(items); navi.selectTab(4);">
+                                                    <div class="media d-flex align-items-center ">
+                                                        <div class="media-body">
+                                                            <h2 class="my-0 text-dark">{{items.parkName | uppercase}}</h2>
+                                                            <div class="font-italic">{{items.streetAddress}}<br /> {{items.city}}, {{items.State}}&nbsp;&nbsp;{{items.zipCode}}
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
+                                                </a>
+                                            </li>
+                                            <li>
 
-                                        <!-- THIS IS WHERE THE PAGINGATION WILL GO IF WE CAN EVER FIGURE IT OUT  -->
+                                                <!-- THIS IS WHERE THE PAGINGATION WILL GO IF WE CAN EVER FIGURE IT OUT  -->
 
-                                    </li>
-                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div id="listdiv" ng-show="navi.isSelected(4)" class="parkinfo">
-                    <h2 id="pkNm"> {{parkDetail.parkName}}</h2>
-                    <p>{{parkDetail.streetAddress}}, {{parkDetail.city}}, {{parkDetail.State}}</p>
-                    <div style="text-align: center">
-                        <a id="r" target="_blank" href="https://www.google.com/maps/search/?api=1&query={{parkDetail.latitude}},{{parkDetail.longitude}}">
+                        <div id="listdiv" ng-show="navi.isSelected(4)" class="parkinfo">
+                            <h2 id="pkNm"> {{parkDetail.parkName}}</h2>
+                            <p>{{parkDetail.streetAddress}}, {{parkDetail.city}}, {{parkDetail.State}}</p>
+                            <div style="text-align: center">
+                                <a id="r" target="_blank" href="https://www.google.com/maps/search/?api=1&query={{parkDetail.latitude}},{{parkDetail.longitude}}">
                             <label id="mapLink">(map)</label>
                         </a>
-                    </div>
-                    <hr>
-                    <div class="e"><a class="btn btn-light" href="#" ng-click="navi.selectTab(1)">Back to Search</a></div>
-                    <hr>
-                    <h4 style="text-align: center;"> This park includes: </h4>
-                    <h4 id="h">{{parkDetail.feature}}</h4>
-                    <br />
+                            </div>
+                            <hr>
+                            <div class="e"><a class="btn btn-light" href="#" ng-click="navi.selectTab(1)">Back to Search</a></div>
+                            <hr>
+                            <h4 style="text-align: center;"> This park includes: </h4>
+                            <h4 id="h">{{parkDetail.feature}}</h4>
+                            <br />
 
-                    <div class="mapcontainer">
-                        <img src="https://maps.googleapis.com/maps/api/staticmap?center={{parkDetail.latitude}},{{parkDetail.longitude}}&zoom=17&size=640x480&maptype=roadmap&markers=color:red%7Clabel:{{parkDetail.parkName}}%7C{{parkDetail.latitude}},{{parkDetail.longitude}}&key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E" />
-                    </div>
+                            <div class="mapcontainer">
+                                <img src="https://maps.googleapis.com/maps/api/staticmap?center={{parkDetail.latitude}},{{parkDetail.longitude}}&zoom=17&size=640x480&maptype=roadmap&markers=color:red%7Clabel:{{parkDetail.parkName}}%7C{{parkDetail.latitude}},{{parkDetail.longitude}}&key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E" />
+                            </div>
 
-                    <br />
-                    <div class="e"><a ng-click="navi.selectTab(1)" href="#" class="btn btn-light">Back to Search</a></div>
-                </div>
+                            <br />
+                            <div class="e"><a ng-click="navi.selectTab(1)" href="#" class="btn btn-light">Back to Search</a></div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section>
-    </div>
-    <div ng-show="navi.isSelected(2)">
-        <div id="aboutMe">
-            <h1>About Parkoo</h1>
-            <h3 style="color:red;">!!!BETA VERSION!!!</h3>
-            <h3><strong>Still in test mode </strong></h3>
-            <ul>
-                <li>Contains minimal data for test purposes</li>
-                <li>Big plans for the future including:
-                    <div>
-                        <ul>
-                            <li>better mobile functionality including mapping and e-mail capability</li>
-                            <li>profiles</li>
-                            <li>geo-location</li>
-                            <li>ratings</li>
-                            <li>stronger search capabilities</li>
-                            <li>and maybe more depending on the feedback we receive.</li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+            <div ng-show="navi.isSelected(2)">
+                <div id="aboutMe">
+                    <h3 style="color:red;">!!!BETA VERSION!!!</h3>
+					<hr />
+                    <h4><strong>What is Parkoo??</strong></h4>
+                    <hr />
+                    <p>As my kids have grown older, our time together becomes more and more important. Between their desire to explore new places along with my disdain of spending hours on Google maps, I've compiled a list of places we had visited with the features offered at each location.</p>
+
+                    <p>Now, thanks to technology, we want to offer our "research" to everybody else. It's important to get out and find something new and beautiful to share with your loved ones, your pets or even your inner child. </p>
+
+                    <p>While this app is in no way perfect, I hope it at least helps you and those who matter most to you find somewhere new to play, to fish, or to just get outside. And if you see something that needs to be updated, please contact us on Facebook, Instagram, or email.
+                    </p>
+					
+                    <h3><strong>Still in test mode </strong></h3>
+                    <ul>
+                        <li>Contains minimal data for test purposes</li>
+                        <li>Big plans for the future including:
+                                <ul>
+                                    <li>better mobile functionality of maps</li>
+									<li>back button functionality</li>
+                                    <li>user profiles</li>
+                                    <li>geo-location</li>
+                                    <li>park rating system</li>
+                                    <li>and more depending on the feedback/help we receive.</li>
+                                </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="e"><a class="btn btn-light" href="#" ng-click="navi.selectTab(1)">Back to Search</a></div>
+                <br />
+                <br />
+            </div>
+            <footer>
+                <div class="section">
+                    <img class="swing" src="images/treeswing.png " />
+                </div>
+                <div class="section">
+                    <br />
+                    <h3>&#169; 2018 Parkoo</h3>
+                </div>
+                <div class="section">
+                    <p>Find us</p>
+                    <ul>
+                        <li><a href="https://www.facebook.com/parkooparks" title="Parkoo Facebook" target="_blank "><img src="images/facebook.png" /></a></li>
+                        <li><a href="http://instagram.com/parkoobeta" title="Parkoo Instagram" target="_blank "><img src="images/insta.png " /></a></li>
+                    </ul>
+                    <br/><br/>
+
+                </div>
+            </footer>
 
 
-            <hr />
-            <h4><strong>Where did Parkoo come from??</strong></h4>
-            <hr />
-            <p>As my kids have grown older, our time together becomes more and more important. Between their desire to explore new places along with my disdain of spending hours on Google maps, looking for a new park to visit helped guide me to this. A list of places we had visited with the features offered at each location.</p>
+            <script async defer type="text/javascript "></script>
+            <!--    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E&callback=myMap "-->
+            <script>
+                // When the user scrolls down, show the button based on screen size
+                window.onscroll = function() {
+                    scrollFunction()
+                };
 
-            <p>Now, thanks to technology, we want to offer our "research" to everybody else. It's important to get out and find something new and beautiful to share with your loved ones, your pets or even your inner child. </p>
-
-            <p>While this app is in no way perfect, I hope it at least helps you and those who matter most to you find somewhere new to play, to fish, or to just get outside. And if you see something that needs to be updated, please contact us on Facebook, Instagram, or email.
-            </p>
-
-        </div>
-        <div class="e"><a class="btn btn-light" href="#" ng-click="navi.selectTab(1)">Back to Search</a></div>
-        <br />
-        <br />
-    </div>
-    <footer>
-        <div class="section">
-            <img class="swing" src="images/treeswing.png " />
-        </div>
-        <div class="section">
-            <br />
-            <h3>&#169; 2018 Parkoo</h3>
-        </div>
-        <div class="section">
-            <p>Find us</p>
-            <ul>
-                <li><a href="https://www.facebook.com/parkooparks" title="Parkoo Facebook" target="_blank "><img src="images/facebook.png" /></a></li>
-                <li><a href="http://instagram.com/parkoobeta" title="Parkoo Instagram" target="_blank "><img src="images/insta.png " /></a></li>
-            </ul>
-            <br/><br/>
-
-        </div>
-    </footer>
-
-
-    <script async defer type="text/javascript "></script>
-    <!--    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E&callback=myMap "-->
-    <script>
-        // When the user scrolls down, show the button based on screen size
-        window.onscroll = function() {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (window.outerWidth > 740) {
-                if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
-                    document.getElementById("myBtn").style.display = "block";
-                } else {
-                    document.getElementById("myBtn").style.display = "none";
+                function scrollFunction() {
+                    if (window.outerWidth > 740) {
+                        if (document.body.scrollTop > 1500 || document.documentElement.scrollTop > 1500) {
+                            document.getElementById("myBtn").style.display = "block";
+                        } else {
+                            document.getElementById("myBtn").style.display = "none";
+                        }
+                    } else {
+                        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                            document.getElementById("myBtn").style.display = "block";
+                        } else {
+                            document.getElementById("myBtn").style.display = "none";
+                        }
+                    }
                 }
-            } else {
-                if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-                    document.getElementById("myBtn").style.display = "block";
-                } else {
-                    document.getElementById("myBtn").style.display = "none";
+
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
                 }
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-
-    </script>
-
+							
+				
+            </script>
 </body>
 
 
@@ -255,3 +250,5 @@
 <script src="js/bootstrap.min.js "></script>
 
 </html>
+
+
