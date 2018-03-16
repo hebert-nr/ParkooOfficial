@@ -421,6 +421,25 @@ ul li img {
     padding: 4px;
 }
 
+.hod p{
+	padding: 0 !important;
+}
+
+.hod ul{
+	padding: 0 !important;
+	margin: 0 !important;
+	}
+	
+.hod li{
+	padding-left: 20px !important;
+	margin: 0 !important;
+	display:block;
+	text-align:left;
+	list-style-type: disc;
+    list-style-position: inside;
+	}	
+
+
 #sort {
     margin-top: 2%;
 }
@@ -634,20 +653,4 @@ ul li img {
     width: auto;
 }
 
-.hod p{
-	padding: 0 !important;
-}
 
-.hod ul{
-	padding: 0 !important;
-	margin: 0 !important;
-	}
-	
-.hod li{
-	padding-left: 20px !important;
-	margin: 0 !important;
-	display:block;
-	text-align:left;
-	list-style-type: disc;
-    list-style-position: inside;
-	}	
