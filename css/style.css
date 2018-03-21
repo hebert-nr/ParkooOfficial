@@ -97,6 +97,7 @@ li {
     padding: 12px;
 }
 
+
 #small {
     visibility: hidden;
     display: none;
@@ -146,18 +147,6 @@ ul {
 #aboutMe a:hover {
     color: #ccc;
     font-size: 1.3em;
-}
-
-#aboutMe ul {
-
-    list-style-type: disc;
-    list-style-position: inside;
-}
-
-#aboutMe li {
-    display: list-item;
-    text-align: left;
-    color: #005406;
 }
 
 #h {
@@ -266,17 +255,12 @@ h4 {
     text-shadow: 2px 1px 1px #000;
 }
 
-.parkinfo a {
-    text-decoration: none;
-    color: #bbb;
-}
-
-#e {
+.e {
+    text-align: center;
     font-size: 1.4em;
 }
 
-#e:hover {
-
+.e:hover {
     cursor: pointer;
     color: green;
 }
@@ -286,11 +270,28 @@ h4 {
     color: #ccc;
 }
 
+.btn btn-light {
+    color: #777;
+}
+
 #mapLink {
     cursor: pointer;
     color: blue;
     text-shadow: 0 0 #eee;
     text-decoration: underline;
+}
+
+div.mapcontainer {
+    display: block;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    line-height: 0;
+}
+
+.mapcontainer img {
+    max-width: 100%;
+
 }
 
 .parkinfo p {
@@ -420,6 +421,25 @@ ul li img {
     padding: 4px;
 }
 
+.hod p{
+	padding: 0 !important;
+}
+
+.hod ul{
+	padding: 0 !important;
+	margin: 0 !important;
+	}
+	
+.hod li{
+	padding-left: 20px !important;
+	margin: 0 !important;
+	display:block;
+	text-align:left;
+	list-style-type: disc;
+    list-style-position: inside;
+	}	
+
+
 #sort {
     margin-top: 2%;
 }
@@ -440,6 +460,22 @@ ul li img {
     border-bottom;
     border-bottom: 3px solid cornsilk;
 }
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 44%;
+    z-index: 99;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+
+
 
 /* ------------------------------------------------------------------------------------------*/
 
@@ -506,6 +542,22 @@ ul li img {
 }
 
 @media screen and (max-width:740px) {
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 43%;
+        z-index: 99;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+
+
     #mapLink {
         font-size: 1.4em;
     }
@@ -600,3 +652,5 @@ ul li img {
     display: inline;
     width: auto;
 }
+
+

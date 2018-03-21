@@ -1,4 +1,4 @@
-var myApp = angular.module('parkoo', ['ui.bootstrap', 'ngMap']);
+var myApp = angular.module('parkoo', ['ui.bootstrap']);
 
 
 //pulls all the data from our json files 
@@ -14,25 +14,48 @@ myApp.factory('parkFac', function ($rootScope, $http) {
 
 
 
-//main control for app, pulling main page information and park details in the sub-pages
-myApp.controller('MyController', function MyController($scope, $http, parkFac, NgMap) {
+//main control for app, pulling main page information and park details in the sub-pages, as well as data pertaining to the nearby map
+myApp.controller('MyController', function MyController($scope, $http, parkFac, $window) {
 
     parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
-        $scope.parkOrder = "parkId";
+        $scope.parkOrder = "parkName";
         $scope.display = "10";
 
         $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E';
     });
 
-    NgMap.getMap().then(function (map) {
 
-        google.maps.event.trigger(map, 'resize');
-        console.log(map.getCenter());
-        console.log('markers', map.markers);
-        console.log('shapes', map.shapes);
-    });
+    function MyCtrl1($scope) {
+        $scope.$on('$locationChangeStart', function (event) {
+            var answer = confirm("Are you sure you want to leave this page?")
+            if (!answer) {
+                event.preventDefault();
+            }
+        });
+    }
 
+    var lat = 0;
+    var lan = 0;
+    var mysrclat = 0;
+    var mysrclong = 0;
+    $scope.nearme = function () {
+        if (navigator.geolocation) {
+			
+            navigator.geolocation.getCurrentPosition(function (position) {
+                mysrclat = position.coords.latitude;
+                mysrclong = position.coords.longitude;
+				
+				$window.open("https://www.google.com/maps/search/park/@"+mysrclat+","+mysrclong);
+                console.log("lat", mysrclat);
+                console.log("ong", mysrclong);
+                $scope.$apply(function () {
+                    $scope.lat = mysrclat;
+                    $scope.lan = mysrclong;
+                })
+            });
+        }
+    }
 
     $scope.pageChangeHandler = function (num) {
         console.log('parks page changed to ' + num);
