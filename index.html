@@ -263,10 +263,10 @@
 				function onBackKeyDown() {
 						 var r = confirm("Do you want to exit Parkoo?");
 						 if(r ==  true){
-							return;
+							document.body.close();
 						 }
 						 else{
-						 alert("stay");
+							return;
 						 }
 				}
 				
