@@ -7,7 +7,7 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashMaintainAspectRatio" value="false" />
     <preference name="SplashShowOnlyFirstTime" value="true" />
-	<preference name="android-minSdkVersion" value="5" />
+	<preference name="android-minSdkVersion" value="20" />
     <plugin name="cordova-plugin-splashscreen" spec="~5.0.1" />
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1" />
 	
