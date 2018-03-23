@@ -30,8 +30,8 @@
 	
 </head>
 
-<body ng-controller="NavController as navi" style="overflow-x: hidden;">
-            <div id="ham" class="sticky-top">
+<body ng-controller="NavController as navi" style="overflow-x: hidden;" ng-init="greet()">
+            <div id="ham" class="sticky-top" >
                 <a ng-click="toggle = !toggle"><img src="images/hamenu.png" /></a>
                 <ul ng-show="toggle">
                     <li><a id="Home" ng-click="navi.selectTab(1); toggle = false">Home</a></li>
@@ -251,6 +251,7 @@
                     document.body.scrollTop = 0;
                     document.documentElement.scrollTop = 0;
                 }				
+				
 				
             </script>
 </body>

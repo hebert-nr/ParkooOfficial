@@ -20,21 +20,14 @@ myApp.controller('MyController', function MyController($scope, $http, parkFac, $
     parkFac.getParks().then(function (response) {
         $scope.parks = response.data;
         $scope.parkOrder = "parkName";
-        $scope.display = "10";
-
+        $scope.display = "10";			
+		$window.onload(alert("Just FYI, Parkoo data consists of Pierce, Thurston and parts of King County, Washington, as well as all the state parks of Washington.\n\nNow get out and enjoy!"));		
+			
         $scope.googleMapsUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyABX8BzP4roRDeX01eYcnbzVNb9Uznc07E';
     });
-
-
-    function MyCtrl1($scope) {
-        $scope.$on('$locationChangeStart', function (event) {
-            var answer = confirm("Are you sure you want to leave this page?")
-            if (!answer) {
-                event.preventDefault();
-            }
-        });
-    }
-
+		
+		
+    
     var lat = 0;
     var lan = 0;
     var mysrclat = 0;
