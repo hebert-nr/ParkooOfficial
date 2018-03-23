@@ -260,16 +260,14 @@
 
 				// Handle the back button
 				function onBackKeyDown() {
-						 var r = confirm("Do you want to exit Parkoo?", OnConfirm,"Yeah", "No");
+						 var r = confirm("Do you want to exit Parkoo?");
+						 if(r ==  true){
+						 alert("TRUTH");
+						 }
+						 else{alert("FALSE");}
 				}
 				
-				function OnConfirm(button) {
-					if(button==2){//if user selected no, then we just do nothing
-						return;
-					}else {
-                // Otherwise we quit the app.
-					navigator.app.exitApp();
-					}
+				
 				
             </script>
 </body>
