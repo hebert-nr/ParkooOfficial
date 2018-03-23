@@ -253,19 +253,21 @@
                 }				
 				document.addEventListener("deviceready", onDeviceReady, false);
 				
+				
 				function onDeviceReady() {
 					// Register the event listener
-					document.addEventListener("backbutton", onBackKeyDown, false);
+					document.addEventListener("backbutton", onBackKeyDown, true);
 				}
 
 				// Handle the back button
 				function onBackKeyDown() {
 						 var r = confirm("Do you want to exit Parkoo?");
 						 if(r ==  true){
-						 document.addEventListener("deviceready", onDeviceReady, true);
-						 document.addEventListener("backbutton", onBackKeyDown, true);
+							return;
 						 }
-						 else{}
+						 else{
+						 alert("stay");
+						 }
 				}
 				
 				
