@@ -263,16 +263,16 @@
 						 var r = confirm("Do you want to exit Parkoo?");
 						 if(r == true)
 						 {
-						 document.addEventListener("backbutton", onBackKeyDown, true);
+						 navigator.app.exitApp();
 						 }
 				}
 				
-				function onConfirm(button) {
-					if(button==2){//If User selected No, then we just do nothing
-						return;
-					}else{
-						navigator.app.exitApp();// Otherwise we quit the app.
-				}
+				<!-- function onConfirm(button) { -->
+					<!-- if(button==2){//If User selected No, then we just do nothing -->
+						<!-- return; -->
+					<!-- }else{ -->
+						<!-- // Otherwise we quit the app. -->
+				<!-- } -->
 }
 				
             </script>
