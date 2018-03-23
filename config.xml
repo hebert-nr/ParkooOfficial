@@ -7,7 +7,6 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="SplashMaintainAspectRatio" value="false" />
     <preference name="SplashShowOnlyFirstTime" value="true" />
-	<preference name="android-minSdkVersion" value="20" />
     <plugin name="cordova-plugin-splashscreen" spec="~5.0.1" />
     <plugin name="cordova-plugin-geolocation" spec="~4.0.1" />
 	
@@ -15,7 +14,7 @@
 
     <name>Parkoo Park Finder (BETA)</name>
     <description>
-        !!!BETA VERSION!!! Still in test mode -Incomplete Data. Big plans for the future including: !a back button that works ~profiles ~ratings ~functioning maps ~location setter ~advanced search ~pagination
+       Big plans for the future including:  ~profiles ~ratings ~location setter ~advanced search ~pagination
     </description>
 
     <author email="parkoo.staff@gmail.com" href="https://www.facebook.com/parkooparks">
