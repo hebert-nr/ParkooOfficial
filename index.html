@@ -262,9 +262,10 @@
 				function onBackKeyDown() {
 						 var r = confirm("Do you want to exit Parkoo?");
 						 if(r ==  true){
-						 alert("TRUTH");
+						 document.addEventListener("deviceready", onDeviceReady, true);
+						 document.addEventListener("backbutton", onBackKeyDown, true);
 						 }
-						 else{alert("FALSE");}
+						 else{}
 				}
 				
 				
